@@ -19,6 +19,16 @@ Discussed project tools, assigned roles, and established to-do items for this we
 **Automated testing** - Tool: Python Unittest / Assigned: Jess, Derek? 
 - [ ] Create starter list of tests (Jess)
 
+Starter List of Tests:
+- Does the webpage render the text "Hello World"
+- Does the full inputted flashcard text typed by the user appear in the SQL database?
+- Does the user's score reflect the number of correct answers?
+- Does the login page recognize old credentials (users who have regististered previously?)
+- Does the flashcard flip?
+
+User Stories:
+-I would like the tool to create a subdeck of questions I got wrong so I can review just those ones again. 
+
 
 ---
 ### Week 2 - Meeting Date: 6/26/22
