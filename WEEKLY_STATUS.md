@@ -14,7 +14,7 @@ Discussed project tools, assigned roles, and established to-do items for this we
 - [ ] Create Dask Page that says "Hello World" (Jonathan)
 
 **Database** - Tool: Python SQLite3 / Assigned: Jonathan, Derek?
-- [ ] Create list of tables (Derek)
+- [x] Create first draft of entity relationship diagram (Derek)
 
 **Automated testing** - Tool: Python Unittest / Assigned: Jess, Derek? 
 - [ ] Create starter list of tests (Jess)
