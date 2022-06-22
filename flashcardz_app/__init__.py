@@ -17,6 +17,6 @@ def create_app(test_config=None):
 
     @app.route('/')
     def home():
-        return "Welcome to Flashcardz!"
+        return "<h1>Welcome to Flashcardz!</h1>"
 
     return app

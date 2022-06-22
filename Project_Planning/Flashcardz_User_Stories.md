@@ -19,10 +19,10 @@
 - So that I can focus on topics I am struggling with
 ---
 
-### User Story 3 - [Name]
-- As a [type of user]
-- I want to [do something]
-- So that I can [get some benefit]
+### User Story 3 - Jonathan Trull
+- As a user
+- I want to be able to register for the Flashcardz website
+- So that I can login to my account and see only my flash cards that I previously created
 ---
 
 ### User Story 4 - [Name]
