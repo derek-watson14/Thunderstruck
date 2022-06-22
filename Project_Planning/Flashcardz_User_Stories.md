@@ -23,11 +23,21 @@
 - As a user
 - I want to be able to register for the Flashcardz website
 - So that I can login to my account and see only my flash cards that I previously created
+=======
+### User Story 4 - Jess
+- As a User
+- I want to view the subdeck of flashcards I got wrong
+- So that I can review just the ones I got wrong the next time I study.
+
+### User Story 5 - Jess
+
+- As a User
+- I want to have multiple decks stored
+- So that I can use the app for different classes
 ---
 
-### User Story 4 - [Name]
+### User Story 5 - [Name]
 - As a [type of user]
 - I want to [do something]
 - So that I can [get some benefit]
 ---
-
