@@ -6,15 +6,11 @@ Discussed project tools, assigned roles, and established initial to-do items to 
 
 Meeting Recording: [Insert Link]()
 
-**Project Development** Tool: Trello / Assigned: Margarita
-
-**Frontend** Tool: html, css, javascript / Assigned: Derek, Jonathan, Margarita
-
-**Backend** Tool: Python Dask / Assigned: Jess, Jonathan
-
-**Database** - Tool: Python SQLite3 / Assigned: Jonathan, Derek
-
-**Automated testing** - Tool: Python Unittest / Assigned: Jess, Derek
+- **Project Development** Tool: Trello / Assigned: Margarita
+- **Frontend** Tool: html, css, javascript / Assigned: Derek, Jonathan, Margarita
+- **Backend** Tool: Python Dask / Assigned: Jess, Jonathan
+- **Database** - Tool: Python SQLite3 / Assigned: Jonathan, Derek
+- **Automated testing** - Tool: Python Unittest / Assigned: Jess, Derek
 
 Initial To Do Items:
 - [x] Assign first week of tasks to Trello (Margarita)
