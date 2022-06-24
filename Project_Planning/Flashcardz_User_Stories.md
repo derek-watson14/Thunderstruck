@@ -23,11 +23,13 @@
 - As a user
 - I want to be able to register for the Flashcardz website
 - So that I can login to my account and see only my flash cards that I previously created
-=======
+---
+
 ### User Story 4 - Jess
 - As a User
 - I want to view the subdeck of flashcards I got wrong
 - So that I can review just the ones I got wrong the next time I study.
+---
 
 ### User Story 5 - Jess
 
