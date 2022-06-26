@@ -30,7 +30,7 @@ Initial To Do Items:
 ---
 ## Week 2 [SPRINT] - Meeting Date: 6/22/22 
 
-Meeting Recording: [Insert Link]()
+Meeting Recording: [Link]()
 
 Scrum Master: Jonathan
 
@@ -59,31 +59,32 @@ Scrum Master: Jonathan
 ---
 ### Week 3 - Meeting Date: 6/26/22
 
-Meeting Recording:
+Meeting Recording: [Link]()
 
-Scrum Master: 
+Scrum Master: Derek
 
 **Derek:**
-- Last Week: 
-- This Week:
-- Obstacles: 
+- Last Week: Setup file that initializes DB tables.
+- This Week: Create file that loads dummy data into tables.
+- Obstacles: n/a
 
 **Margarita:**
-- Last Week: 
-- This Week:
-- Obstacles:
+- Last Week: Added routes to the flask app according to the list of pages created.  
+- This Week: Continue to research HTML and CSS in flask, list out features to include.
+- Obstacles: Lack of knowledge on front end processes.
 
 **Jonathan:**
-- Last Week: 
-- This Week:
-- Obstacles:
+- Last Week: absent
+- This Week: absent
+- Obstacles: absent
 
 **Jessica:**
-- Last Week: 
-- This Week:
-- Obstacles:
+- Last Week: I learned about flask.
+- This Week: Expanding list of tests to encompass the lasted ERD and Site Map.
+- Obstacles: Time
 
 **Team Reflections:**
+- We should consider providing feedback on each other's completed items, i.e. adding comments on Trello.
 
 ---
 
