@@ -74,9 +74,9 @@ Scrum Master: Derek
 - Obstacles: Lack of knowledge on front end processes.
 
 **Jonathan:**
-- Last Week: absent
-- This Week: absent
-- Obstacles: absent
+- Last Week: Created Flask app skeleton for Flashcardz
+- This Week: Building out User registration|login|logout functionality for Flashcardz
+- Obstacles: n/a
 
 **Jessica:**
 - Last Week: I learned about flask.
