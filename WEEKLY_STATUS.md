@@ -4,7 +4,9 @@
 
 Discussed project tools, assigned roles, and established initial to-do items to prepare for first sprint.
 
-Meeting Recording: [Insert Link]()
+Meeting Recording: [View Here](https://cuboulder.zoom.us/rec/share/def57MQFr7LEopRTfDUr6e4sj8tYKJ2Tu3V5HnUNxCmvG-I5G-vnc_0UnMeIJenE.sTsxG5GlOW12Y_3G)
+Access Passcode: @v3#R6Jv
+Must be viewed with CU Boulder Zoom account.
 
 - **Project Development** Tool: Trello / Assigned: Margarita
 - **Frontend** Tool: html, css, javascript / Assigned: Derek, Jonathan, Margarita
@@ -30,7 +32,9 @@ Initial To Do Items:
 ---
 ## Week 2 [SPRINT] - Meeting Date: 6/22/22 
 
-Meeting Recording: [Link]()
+Meeting Recording: [View Here](https://cuboulder.zoom.us/rec/share/UlTYaGTrWLEdxdPruEpBxlWR7Rleo08fPyj66xtcU_OTsgK9cqKYJy0GI-7WFvuP.wrCOPtF_1MwlpjwL)
+Access Passcode: 0AG9$gMT
+Must be viewed with CU Boulder Zoom account.
 
 Scrum Master: Jonathan
 
@@ -59,7 +63,7 @@ Scrum Master: Jonathan
 ---
 ### Week 3 - Meeting Date: 6/26/22
 
-Meeting Recording: [Link]()
+Meeting Recording: No Recording This Week
 
 Scrum Master: Derek
 
