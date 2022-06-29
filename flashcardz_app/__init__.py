@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, request, render_template
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -27,9 +27,9 @@ def create_app(test_config=None):
     def login():
         return "<h1>Login Page!</h1>"
     
-    @app.route('/create-new-account')
+    @app.route('/register')
     def create_account():
-        return "<h1>Create a new account!</h1>"
+        return render_template("register.html")
     
     @app.route('/mydecks-home')
     def my_decks():
