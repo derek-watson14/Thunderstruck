@@ -1,9 +1,10 @@
 import os
 import sqlite3
+import werkzeug
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask import Flask, redirect, request, render_template, url_for
+from flask import Flask, redirect, request, render_template, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, UserMixin
+from flask_login import LoginManager, UserMixin, login_user
 import flashcardz_app.models
 from flashcardz_app.forms import RegistrationForm, LoginForm
 
@@ -30,16 +31,32 @@ def create_app(test_config=None):
 
     @login_manager.user_loader
     def load_user(user_id):
-        return flashcardz_app.models.User.get_id(user_id)
+        conn = sqlite3.connect('/Users/jtrull/Documents/cspb3308/Thunderstruck/flashcardz_app/flashcardz.db')
+        curs = conn.cursor()
+        curs.execute("SELECT * from users where user_id = (?);", [user_id])
+        user = curs.fetchone()
+        if user is None:
+            return None
+        else:
+            return flashcardz_app.models.User(user[1], user[2], user[0])
 
     @app.route('/')
     def home():
         return "<h1>Welcome to Flashcardz!</h1>"
     
-    @app.route('/login')
+    @app.route('/login', methods=['GET', 'POST'])
     def login():
-        
-        return "<h1>Login Page!</h1>"
+        form = LoginForm()
+        if form.validate_on_submit():
+            conn = sqlite3.connect('/Users/jtrull/Documents/cspb3308/Thunderstruck/flashcardz_app/flashcardz.db')
+            cur = conn.cursor()
+            user = cur.execute("SELECT * from users where email = (?);", [form.email.data]).fetchone()
+            user_object = load_user(user[0])
+            if form.email.data == user_object.email and check_password_hash(user_object.password, form.password.data):
+                login_user(user_object)
+                flash("Logged in successfully " + user_object.email)
+                return redirect(url_for('my_decks'))
+        return render_template('login.html', form=form)
     
     @app.route('/register', methods = ['POST', 'GET'])
     def register():
