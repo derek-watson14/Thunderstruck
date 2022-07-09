@@ -26,7 +26,9 @@ Deck Class (Deck is a composite of Cards)
 Card Class (Card is a component of Deck)
 -cardID: int
 -deckID: int
--front_text: String
--back_text: String
+-frontText: String
+-backText: String
 -correct: Boolean
+
+-cardCorrect()
 
