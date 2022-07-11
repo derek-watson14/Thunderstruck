@@ -119,7 +119,7 @@ Scrum Master: n/a
 - Obstacles:
 
 **Jessica:**
-- Last Week: 
+- Last Week: Added additional ideas on tests to my list. Sketched out backend code for a Deck, Card, and User Class.
 - This Week: Add list of tests for rendering pages,
 - Obstacles:
 
