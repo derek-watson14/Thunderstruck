@@ -120,7 +120,7 @@ Scrum Master: n/a
 
 **Jessica:**
 - Last Week: 
-- This Week:
+- This Week: Add list of tests for rendering pages,
 - Obstacles:
 
 **Team Reflections:**
