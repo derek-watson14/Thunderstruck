@@ -1,6 +1,6 @@
 # Weekly Status Updates
 
-### Week 1 - Meeting Date: 6/19/22
+### Meeting Date: 6/19/22
 
 Discussed project tools, assigned roles, and established initial to-do items to prepare for first sprint.
 
@@ -30,7 +30,7 @@ Initial To Do Items:
 > - Does the flashcard flip?
 
 ---
-## Week 2 [SPRINT] - Meeting Date: 6/22/22 
+## [SPRINT] - Meeting Date: 6/22/22 
 
 Meeting Recording: [View Here](https://cuboulder.zoom.us/rec/share/UlTYaGTrWLEdxdPruEpBxlWR7Rleo08fPyj66xtcU_OTsgK9cqKYJy0GI-7WFvuP.wrCOPtF_1MwlpjwL)
 Access Passcode: 0AG9$gMT
@@ -61,7 +61,7 @@ Scrum Master: Jonathan
 **Team Reflections:** Should discuss best practices for branching.
 
 ---
-### Week 3 - Meeting Date: 6/26/22
+### Meeting Date: 6/26/22
 
 Meeting Recording: No Recording This Week
 
@@ -92,7 +92,42 @@ Scrum Master: Derek
 
 ---
 
-### Week 4 - Meeting Date: 7/3/22
+### Meeting Date: 7/3/22
+- Did not meet due to July 4th Holiday 
+
+---
+
+### Meeting Date: 7/10/22
+
+Meeting Recording: n/a
+
+Scrum Master: n/a
+
+**Derek:**
+- Last Week: 
+- This Week: Add parameters and data needed to render pages, 
+- Obstacles: 
+
+**Margarita:**
+- Last Week: Learned how to create a DB in sqlite3.
+- This Week: Update Trello, Update WEEKLY_STATUS.md, Create outline for Milestone 4, Add descriptions and mockups for PAGE_TESTING.md.
+- Obstacles: n/a
+
+**Jonathan:**
+- Last Week: 
+- This Week: Add Link destinations for pages, 
+- Obstacles:
+
+**Jessica:**
+- Last Week: 
+- This Week:
+- Obstacles:
+
+**Team Reflections:**
+
+---
+
+### Meeting Date: 7/13/22
 
 Meeting Recording:
 
@@ -122,7 +157,7 @@ Scrum Master:
 
 ---
 
-### [TEMPLATE] Week __ - Meeting Date: 
+### [TEMPLATE] Meeting Date: 
 
 Meeting Recording:
 
