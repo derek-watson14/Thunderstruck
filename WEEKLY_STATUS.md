@@ -51,7 +51,7 @@ Scrum Master: Jonathan
 **Jonathan:**
 - Last Week: Created Flask App skeleton for Flashcardz, added 1 user story.
 - This Week: Learn more about using the login functionality built into Python Flask.
-- Obstacles: 
+- Obstacles: n/a
 
 **Jessica:**
 - Last Week: Created starter list of tests, added 2 user stories.
@@ -114,9 +114,9 @@ Scrum Master: n/a
 - Obstacles: n/a
 
 **Jonathan:**
-- Last Week: 
-- This Week: Add Link destinations for pages, 
-- Obstacles:
+- Last Week: Built User model and implemented and tested login and logout functionality 
+- This Week: Add Link destinations for pages for week's milestone and begin sketching out python functions to track and render decks and cards
+- Obstacles: n/a
 
 **Jessica:**
 - Last Week: Added additional ideas on tests to my list. Sketched out backend code for a Deck, Card, and User Class.
