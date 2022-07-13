@@ -29,4 +29,4 @@ https://lucid.app/lucidchart/836bd06b-03e8-4384-9db2-bfecc67af41e/edit?viewport_
 - Logout
 
 ## Map Preview:
-![Site Flow Map](Flashcardz_Sitemap.jpeg)
+![Site Flow Map](images/Flashcardz_Sitemap.jpeg)
