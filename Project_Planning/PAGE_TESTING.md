@@ -28,7 +28,8 @@
 9. Are the password's constraint that it is not null working properly?
 
 **Mockup:** 
-![HomePage/LogIn](Homepage_Login.png)
+
+![HomePage/LogIn](images/Homepage_Login.png)
 
 ---
 
@@ -47,7 +48,8 @@
 6. Does the database store the hashed password?
 
 **Mockup:** 
-![Create an Account](Create_Account.png)
+
+![Create an Account](images/Create_Account.png)
 
 ---
 
@@ -68,7 +70,8 @@
 7. When you click "log-out," are you actually logged-out?
 
 **Mockup:** 
-![My Decks](My_Decks.png)
+
+![My Decks](images/My_Decks.png)
 
 ---
 
@@ -89,7 +92,8 @@
 8. Is there a button to to "Start Studying?"
 
 **Mockup:** 
-![Deck Overview](Deck_Overview.png)
+
+![Deck Overview](images/Deck_Overview.png)
 
 ---
 
@@ -114,7 +118,9 @@
 12.  Does the attempt field accurately represent the number of times the user has gone through that deck?
 
 **Mockup:** 
-![View/Study Deck](Study_Question.png) ![View/Study Deck](Study_Answer.png)
+
+![View/Study Deck](images/Study_Question.png) 
+![View/Study Deck](images/Study_Answer.png)
 
 ---
 
@@ -131,7 +137,8 @@
 4. If a user removes a card, does it disappear from the View/Study Deck page?
 
 **Mockup:** 
-![Deck Editor](Deck_Editor.png)
+
+![Deck Editor](images/Deck_Editor.png)
 
 ---
 
@@ -149,6 +156,7 @@
 5. If the user edits an Answer and Questions, do both the new question and new answer appear?
 
 **Mockup:** 
-![Card Editor](Card_Editor.png)
+
+![Card Editor](images/Card_Editor.png)
 
 ---
