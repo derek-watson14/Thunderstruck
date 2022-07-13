@@ -104,9 +104,9 @@ Meeting Recording: n/a
 Scrum Master: n/a
 
 **Derek:**
-- Last Week: 
-- This Week: Add parameters and data needed to render pages, 
-- Obstacles: 
+- Last Week: Reworked database creation file, wrote function signatures for db access functions
+- This Week: Add parameters and data needed to render pages, convert db to PostgreSQL
+- Obstacles: n/a
 
 **Margarita:**
 - Last Week: Learned how to create a DB in sqlite3.
