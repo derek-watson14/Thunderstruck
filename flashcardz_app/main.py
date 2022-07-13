@@ -1,4 +1,3 @@
-from User import User
 from Deck import Deck
 
 # Create a User
