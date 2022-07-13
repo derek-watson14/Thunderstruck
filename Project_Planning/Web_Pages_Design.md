@@ -14,7 +14,7 @@
 - **Description:** This page is the homepage for our project, this is where a user is introducted to our site. 
 - **Parameters:** none
 - **Data:** GET: none | POST: user email, password
-- **Link Destinations:** ...
+- **Link Destinations:** Create_Account (if they don't currently have an account) and My_Decks (once they login successfully)
 - **Tests:**
 
 1. Does the page title "Create an account" properly render?
@@ -37,7 +37,7 @@
 - **Description:** This page is where a user can create an account to our site. 
 - **Parameters:** none 
 - **Data:** GET: none | POST: user email, password
-- **Link Destinations:** ...
+- **Link Destinations:** Homepage_Login
 - **Tests:**
 
 1. Does the page title "Create an account" properly render?
@@ -57,7 +57,7 @@
 - **Description:** This page is a homepage for users once they are logged into their account, this page will list out all of the decks the user has created.
 - **Parameters:** user_id `/mydecks?userid=<user_id>`
 - **Data:** GET: user decks (name, card count), email, user id 
-- **Link Destinations:** ...
+- **Link Destinations:** Deck_Overview | Homepage_Login (upon logout)
 - **Tests:**
 
 1. Does the page title "My Decks" properly render?
@@ -79,7 +79,7 @@
 - **Description:** This page is an overview of a specific deck. The user will see a thumbnail view of each card, view "correct"/"incorrect" score of each card, and the option to click "Start Studying".
 - **Parameters:** deck_id, user_id `/deck/overview?deckid=<deck_id>&userid=<user_id>`
 - **Data:** GET: deck name, card count, all associated cards (front_text & back_text), all associated card scores for current user
-- **Link Destinations:** ...
+- **Link Destinations:** My_Decks | Study_Deck | Deck_Editor | Homepage_Login (upon logout)
 - **Tests:**
 
 1. Does the page title "Deck Overview" properly render?
@@ -101,7 +101,7 @@
 - **Description:** This page is a single card view within a deck that will include the option to view the next card, previous card, or deck overview. The user will also be able to score individual cards as "correct" or "incorrect".
 - **Parameters:** deck_id, user_id `/deck/study?deckid=<deck_id>&userid=<user_id>`
 - **Data:** GET: deck name, card count, all associated cards (front_text & back_text) | PUT: correct/incorrect for each card id tested, user id
-- **Link Destinations:** ...
+- **Link Destinations:** Deck_Overview | Homepage_Login (upon logout)
 - **Tests:**
 
 1. Does the page title "Study Deck" properly render?
@@ -128,7 +128,7 @@
 - **Description:** This page will allow the user to create or edit a deck by adding or removing cards. 
 - **Parameters:** deck_id, user_id `/deck/edit?deckid=<deck_id>&userid=<user_id>`
 - **Data:** GET: deck name, card count, all associated cards (front_text & back_text) | PUT: new deck name | DELETE: deck_id, user_id
-- **Link Destinations:** ...
+- **Link Destinations:** Deck_Overview | Homepage_Login (upon logout)
 - **Tests:**
 
 1. Does the page title "Deck Editor" properly render?
@@ -146,7 +146,7 @@
 - **Description:** This page will allow the user to edit a single card within a deck by editing the "Question" or "Answer" portion of the card.
 - **Parameters:** card_id, user_id `/card?cardid=<deck_id>&userid=<user_id>`
 - **Data:** GET: front_text, back_text | PUT: new front_text, back_text, card_id, user_id | DELETE: card_id, user_id
-- **Link Destinations:** ...
+- **Link Destinations:** Deck_Editor | Homepage_Login (upon logout)
 - **Tests:**
 
 1. Does the page title "Card Editor" properly render?
