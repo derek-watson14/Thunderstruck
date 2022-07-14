@@ -1,4 +1,14 @@
-# Milestone 4 Outline
+# Milestone 4 - Web Pages Design
+
+### List of Pages:
+
+1. Login
+2. Create an Account
+3. My Decks
+4. Deck Overview
+5. Study Deck
+6. Deck Editor
+7. Card Editor
 
 ### Page Template:
 * Page Title - **Margarita**
@@ -10,7 +20,7 @@
 
 ---
 
-## Title: Login page
+## Title: Log In
 - **Description:** This page is the homepage for our project, this is where a user can log in to our site. 
 - **Parameters:** none
 - **Data:** GET: none | POST: user email, password
