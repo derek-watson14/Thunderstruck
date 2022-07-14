@@ -97,7 +97,7 @@
 ## Title: Study Deck
 - **Description:** This page is a single card view within a deck that will include the option to view the next card, previous card, or deck overview. The user will also be able to score individual cards as "correct" or "incorrect".
 - **Parameters:** deck_id, user_id, card_id `/deck/study?deckid=<deck_id>&userid=<user_id>&cardid=<card_id>`
-- **Data:** GET: deck name, card count, all associated cards (front_text & back_text) | PUT: correct/incorrect for each card id tested, user id
+- **Data:** GET: deck name, all associated cards (front_text & back_text), current card_id | PUT: correct/incorrect for card id tested, user id
 - **Link Destinations:** Deck_Overview | Card_Editor | Homepage_Login (upon logout)
 - **Tests:**
 
