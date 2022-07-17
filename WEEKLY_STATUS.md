@@ -119,7 +119,7 @@ Meeting Recording: n/a
 **Jessica:**
 - Last Week: Added additional ideas on tests to my list. Sketched out backend code for a Deck, Card, and User Class.
 - This Week: Add list of tests for rendering pages,
-- Obstacles:
+- Obstacles: n/a
 
 **Team Reflections:**
 
@@ -130,9 +130,9 @@ Meeting Recording: n/a
 Meeting Recording: n/a
 
 **Derek:**
-- Last Week: 
-- This Week:
-- Obstacles: 
+- Last Week: researched SQLAlchemy, Flask login, and got postgres running locally
+- This Week: write the models, clean up the app repository.
+- Obstacles: n/a
 
 **Margarita:**
 - Last Week: Completed Heroku tutorial, added descriptions and created mockups for page designs, worked on css style sheets and html templates for app.
@@ -140,18 +140,19 @@ Meeting Recording: n/a
 - Obstacles: n/a
 
 **Jonathan:**
-- Last Week: 
-- This Week:
-- Obstacles:
+- Last Week: Getting flaschcardz deployed in heroku
+- This Week: Updating the routes, init file, getting everything deployed in heroku
+- Obstacles: n/a
 
 **Jessica:**
-- Last Week: 
-- This Week:
-- Obstacles:
+- Last Week: Wrote list of tests for milestone 4, 
+- This Week: begin building coding framework for backend, build testing structure, study links and resources related to our application
+- Obstacles: n/a
 
 **Team Reflections:**
 - Discussed new weekly meeting time: Fridays @ 3:30pm MST
-- Repository needs to be cleaned up and structured - completed during meeting
+- Repository needs to be cleaned up and structured - started during meeting
+- Team obstacles: Limited on time, hard to collaborate with everyones differing schedules.
 
 ---
 
