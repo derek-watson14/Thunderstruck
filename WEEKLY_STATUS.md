@@ -101,8 +101,6 @@ Scrum Master: Derek
 
 Meeting Recording: n/a
 
-Scrum Master: n/a
-
 **Derek:**
 - Last Week: Reworked database creation file, wrote function signatures for db access functions
 - This Week: Add parameters and data needed to render pages, convert db to PostgreSQL
@@ -127,11 +125,9 @@ Scrum Master: n/a
 
 ---
 
-### Meeting Date: 7/13/22
+### Meeting Date: 7/17/22
 
-Meeting Recording:
-
-Scrum Master: 
+Meeting Recording: n/a
 
 **Derek:**
 - Last Week: 
@@ -139,9 +135,9 @@ Scrum Master:
 - Obstacles: 
 
 **Margarita:**
-- Last Week: 
-- This Week:
-- Obstacles:
+- Last Week: Completed Heroku tutorial, added descriptions and created mockups for page designs, worked on css style sheets and html templates for app.
+- This Week: Continue to work on templates/stylesheet, add routes to templates, learn more about javascript
+- Obstacles: n/a
 
 **Jonathan:**
 - Last Week: 
@@ -154,6 +150,8 @@ Scrum Master:
 - Obstacles:
 
 **Team Reflections:**
+- Discussed new weekly meeting time: Fridays @ 3:30pm MST
+- Repository needs to be cleaned up and structured - completed during meeting
 
 ---
 
