@@ -4,96 +4,38 @@ import sqlite3
 import werkzeug
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import Flask, redirect, request, render_template, url_for, flash
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, UserMixin, login_user
-import flashcardz_app.models
-from flashcardz_app.forms import RegistrationForm, LoginForm
+from flask_login import LoginManager
 
-def create_app(test_config=None):
-    app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(
-        SECRET_KEY='dev',
-        DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
-    )
-    
-    if test_config is None:
-        app.config.from_pyfile('config.py', silent=True)
-    else:
-        app.config.from_mapping(test_config)
+# Create globally accessible instances of important libaries
+login_manager = LoginManager()
+db = SQLAlchemy()
 
-    try:
-        os.makedirs(app.instance_path)
-    except OSError:
-        pass
+def create_app():
+
+    # Initialize the core application
+    app = Flask(__name__, instance_relative_config=False)
+    app.config.from_object("config.Config")
     
-    #set-up loginmanager object
-    login_manager = LoginManager()
+    # Initialize library plugins
+    db.init_app(app)
     login_manager.init_app(app)
 
-    @login_manager.user_loader
-    def load_user(user_id):
-        conn = sqlite3.connect('/Users/jtrull/Documents/cspb3308/Thunderstruck/flashcardz_app/flashcardz.db')
-        curs = conn.cursor()
-        curs.execute("SELECT * from users where user_id = (?);", [user_id])
-        user = curs.fetchone()
-        if user is None:
-            return None
-        else:
-            return flashcardz_app.models.User(user[1], user[2], user[0])
+    # Import routes and create app
+    with app.app_context():
+        # Import routes from routes.py
+        from . import auth, routes
 
-    @app.route('/')
-    def home():
-        return "<h1>Welcome to Flashcardz!</h1>"
+        # Register Blueprints
+        # Flask apps can be organized via a built-in concept called Blueprints, which are essentially the Flask equivalent of Python modules
+        # Blueprints keep related logic and assets grouped and separated from one another
+        # In this case main_bp (routes.py) contains pages users see when logged, and auth.bp (auth.py) contain login and auth routes
+        app.register_blueprint(routes.main_bp)
+        app.register_blueprint(auth.auth_bp)
+        
+        # Create database tables for our data models
+        db.create_all()
     
-    @app.route('/login', methods=['GET', 'POST'])
-    def login():
-        form = LoginForm()
-        if form.validate_on_submit():
-            conn = sqlite3.connect('/Users/jtrull/Documents/cspb3308/Thunderstruck/flashcardz_app/flashcardz.db')
-            cur = conn.cursor()
-            user = cur.execute("SELECT * from users where email = (?);", [form.email.data]).fetchone()
-            user_object = load_user(user[0])
-            if form.email.data == user_object.email and check_password_hash(user_object.password, form.password.data):
-                login_user(user_object)
-                flash("Logged in successfully " + user_object.email)
-                return redirect(url_for('my_decks'))
-        return render_template('login.html', form=form)
-    
-    @app.route('/register', methods = ['POST', 'GET'])
-    def register():
-        form = RegistrationForm()
-        if form.validate_on_submit():
-            user = flashcardz_app.models.User(email=form.email.data, password=form.password1.data)
-            user.set_password(form.password1.data)
-            #add sqlite insert command
-            conn = sqlite3.connect('/Users/jtrull/Documents/cspb3308/Thunderstruck/flashcardz_app/flashcardz.db')
-            cur = conn.cursor()
-            cur.execute("INSERT INTO users values (?, ?, ?)", (None, user.email, user.password_hash))
-            conn.commit()
-            cur.close()
-            print(user.email+": "+user.password_hash)
-            return redirect(url_for('login'))
-        return render_template("registration.html", form=form)
-    
-    @app.route('/mydecks-home')
-    def my_decks():
-        return "<h1>Welcome to your account home page (My Decks)!</h1>"
-
-    @app.route('/create-deck')
-    def create_deck():
-        return "<h1>Create a Deck here!</h1>"
-    
-    @app.route('/edit-deck')
-    def edit_deck():
-        return "<h1>Edit a Deck here!</h1>"
-    
-    @app.route('/deck-overview')
-    def deck_overview():
-        return "<h1>View a Deck Overview here!</h1>"
-    
-    @app.route('/explore-decks')
-    def explore():
-        return "<h1>Explore other decks here!</h1>" 
-    
-    
-    return app
+        return app
+ 
