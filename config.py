@@ -1,8 +1,8 @@
 from os import environ, path
 
 # If in development, use .env file
-# If in production, heroku handles config variables in the apps settings
-if not environ.get("production"):
+# If in production, heroku handles config variables in the apps
+if environ.get("development"):
     from dotenv import load_dotenv
 
     basedir = path.abspath(path.dirname(__file__))
