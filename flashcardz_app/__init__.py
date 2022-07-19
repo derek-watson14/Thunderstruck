@@ -1,4 +1,5 @@
 import os
+import psycopg2
 import sqlite3
 import werkzeug
 from werkzeug.security import generate_password_hash, check_password_hash
