@@ -1,8 +1,12 @@
 from os import environ, path
-from dotenv import load_dotenv
 
-basedir = path.abspath(path.dirname(__file__))
-load_dotenv(path.join(basedir, ".env"))
+# If in development, use .env file
+# If in production, heroku handles config variables in the apps settings
+if not environ.get("production"):
+    from dotenv import load_dotenv
+
+    basedir = path.abspath(path.dirname(__file__))
+    load_dotenv(path.join(basedir, ".env"))
 
 class Config:
     """ 
