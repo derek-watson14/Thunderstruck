@@ -6,3 +6,4 @@ python-dotenv==0.20.0
 SQLAlchemy==1.4.39
 Werkzeug==2.1.2
 WTForms==3.0.1
+python-dotenv==0.20.0
