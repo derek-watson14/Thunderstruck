@@ -1,6 +1,11 @@
 """Logged-in page routes."""
 from flask import Blueprint, redirect, render_template, url_for, make_response
 from flask_login import current_user, login_required, logout_user
+import flask_login
+
+from .forms import CreateDecksForm
+
+from .models import User, Deck, db
 
 # Blueprint Configuration
 main_bp = Blueprint(
@@ -19,15 +24,25 @@ def home():
 @main_bp.route('/<email>/mydecks')
 @login_required
 def my_decks(email):
-    return """
-        <h1>Hello, {}</h1>
-        <h2>Welcome to your account home page (My Decks)!</h2>
-    """.format(email)
+    #step one, obtain id of user to obtain decks
+    current_user = User.query.filter_by(email=email).first()
+    #step two, get collection of all decks owned by logged in user
+    user_decks = Deck.query.filter_by(owner_id=current_user.id).all()
+    return render_template('my_decks.html', email=email, user_decks=user_decks)
 
-@main_bp.route('/decks/create')
+@main_bp.route('/<email>/decks/create', methods=['GET', 'POST'])
 @login_required
-def create_deck():
-    return "<h1>Create a Deck here!</h1>"
+def create_deck(email):
+
+    form = CreateDecksForm()
+    if form.validate_on_submit():
+        current_user = User.query.filter_by(email=email).first()
+        new_deck = Deck(name=form.deck_name.data, card_count=form.card_count.data, owner_id=current_user.id)
+        db.session.add(new_deck)
+        db.session.commit()
+        return redirect(url_for('main_bp.my_decks', email=email))
+
+    return render_template('create_deck.html', form=form)
 
 @main_bp.route('/decks/edit')
 @login_required

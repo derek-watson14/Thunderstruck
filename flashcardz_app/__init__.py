@@ -1,9 +1,3 @@
-import os
-import psycopg2
-import sqlite3
-import werkzeug
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask import Flask, redirect, request, render_template, url_for, flash
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
