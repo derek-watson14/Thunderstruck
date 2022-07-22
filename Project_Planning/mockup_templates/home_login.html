@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flashcardz - Home</title>
+	<link href="stylesheet.css" type="text/css" rel="stylesheet"/>
+	<h1>FLASHCARDZ</h1>
+	<h2>LOG IN </h2>	
+</head>
+<body>
+	<form>
+		<div id="login">
+			EMAIL<br/> 
+			<input type = "text" name = "email" />
+			<br>
+			PASSWORD<br/> 
+			<input type = "password" name = "password" />
+			<br>
+			<input type = "button" name = "ok" value = "LOG IN" />
+		</div>
+	</form>
+	<p><a href="{{ url_for('register') }}">Don't have an account? Sign up!</a></p>
+
+</body>
+</html>
