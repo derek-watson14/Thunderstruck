@@ -3,9 +3,9 @@ from flask import Blueprint, redirect, render_template, url_for, make_response
 from flask_login import current_user, login_required, logout_user
 import flask_login
 
-from .forms import CreateDecksForm
+from .forms import AddCardForm, CreateDecksForm
 
-from .models import User, Deck, db
+from .models import User, Deck, Card, db
 
 # Blueprint Configuration
 main_bp = Blueprint(
@@ -44,10 +44,20 @@ def create_deck(email):
 
     return render_template('create_deck.html', form=form)
 
-@main_bp.route('/decks/edit')
+@main_bp.route('/<email>/<deck_id>/decks/edit', methods=['GET', 'POST'])
 @login_required
-def edit_deck():
-    return "<h1>Edit a Deck here!</h1>"
+def edit_deck(email, deck_id):
+    user_cards = Card.query.filter_by(deck_id=deck_id).all()
+    form = AddCardForm()
+    if form.validate_on_submit():
+        new_card = Card(front=form.front.data, back=form.back.data, deck_id=deck_id)
+        db.session.add(new_card)
+        db.session.commit()
+        user_cards = Card.query.filter_by(deck_id=deck_id).all()
+        return render_template('my_cards.html', email=email, user_cards=user_cards, form=form)
+
+    
+    return render_template('my_cards.html', email=email, user_cards=user_cards, form=form)
 
 @main_bp.route('/decks/overview')
 def deck_overview():
