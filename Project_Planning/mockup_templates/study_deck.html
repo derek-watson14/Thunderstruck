@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flashcardz - Deck Overview</title>
+	<link href="stylesheet.css" type="text/css" rel="stylesheet"/>
+	<h1>FLASHCARDZ</h1>
+	<h2>STUDY DECK</h2>	
+</head>
+<body>
+	<div id="top_nav">
+		<a href="{{ url_for('deck_overview') }}">Deck Overview</a>
+		<a href="{{ url_for('my_decks') }}">My Decks</a>
+	</div>
+	<div id="view_card">
+		<h3>Question 1 </h3>
+		<p>
+		Solve for x: 3x + 2 = ?
+		</p>
+			
+	</div>
+	<p> SCORE: </p>
+	<div id="bottom_nav">
+		<a href="{{ url_for('next_card') }}">Next Card</a>
+ 		<a href="{{ url_for('deck_card') }}">Edit Card</a>
+		<a href="{{ url_for('prev_card') }}">Previous Card</a>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+/* Flashcardz stylesheet */
+
+
+h1 {
+        margin-bottom: 0px;
+	font-family: helvetica;
+}
+
+h2 {
+	font-size: 20px;
+        margin-top: 0px;
+	margin-bottom: 30px;
+        color: blue;
+        font-family: helvetica;;
+}
+
+
+body {
+	background-color: cornflowerblue;
+	font-family: helvetica;
+	text-align: center;
+}
+
+#top_nav {
+	padding: 20px;;
+	height: 30px;
+	color: white;
+	overflow: hidden;
+
+}
+#top_nav a {
+	margin: 20px;
+	padding: 20px;
+	color: white;
+	background: blue;
+}
+
+#top_nav a {
+        margin: 20px;
+        padding: 20px;
+        color: white;
+        background: blue;
+}
+
+#bottom_nav {
+        padding: 20px;;
+        height: 30px;
+        color: white;
+        overflow: hidden;
+
+}
+#bottom_nav a {
+        margin: 20px;
+        padding: 20px;
+        color: white;
+        background: blue;
+}
+
+
+#bottom_nav a:hover {
+	background-color: grey;
+}
+
+
+p {
+	text-align: center;
+	float: none;
+	color: blue;	
+	font-size: 25px;
+	padding: 10px;	
+
+}
+
+
+
+input[type=button] {
+        background-color: blue;
+	color: white;
+        padding: 9px 24px;
+	margin-bottom: 20px;
+
+}
+
+input[type=text] {
+	width: 20%;
+	padding: 12px 20px;
+	margin-top: 0px;
+  	margin-bottom: 10px;
+	
+}
+
+input[type=password] {
+        width: 20%;
+        padding: 12px 20px;
+        margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+
+#decks input[type=button] {
+	background-color: white;
+	margin: 20px;
+	color: black;
+	padding: 10px 12px;
+	width: 200px;
+	height:	100px;
+	border: solid blue;
+	word-wrap: break-word;
+}
+
+#cards input[type=button] {
+	margin: 20px;
+	background-color: white;
+        color: black;
+        padding: 10px 12px;
+        width: 200px;
+        height: 100px;
+        border: solid blue;
+        word-wrap: break-word;
+}
+
+
+#view_card p {
+	color: black;
+	text-align: center;
+	width: 50%;
+	height: 80%;
+	border: solid blue;
+	background-color: white;;
+  	padding: 90px 50px;
+  	margin-left: auto;
+	margin-right: auto;
+
+}
+
+#
+
+
+
+

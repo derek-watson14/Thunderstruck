@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flashcardz - Deck Overview</title>
+	<link href="stylesheet.css" type="text/css" rel="stylesheet"/>
+	<h1>FLASHCARDZ</h1>
+	<h2>DECK OVERVIEW</h2>	
+</head>
+<body>
+	<div id="top_nav">
+		<a href="{{ url_for('logout') }}">Log Out</a>
+		<a href="{{ url_for('my_decks') }}">My Decks</a>
+	</div>
+	<div id="cards">	
+		<input type = "button" name = "ok" value = "Question #1" />
+		<input type = "button" name = "ok" value = "Question #2" />
+		<input type = "button" name = "ok" value = "Question #3" />
+		<input type = "button" name = "ok" value = "Question #4" />
+		<input type = "button" name = "ok" value = "Question #5" />
+		<input type = "button" name = "ok" value = "Question #6" />
+		<input type = "button" name = "ok" value = "Question #7" />
+		<input type = "button" name = "ok" value = "Question #8" />
+		<input type = "button" name = "ok" value = "Question #9" />
+	</div>
+	<p> SCORE: </p>
+	<div id="bottom_nav">
+		<a href="{{ url_for('deck_editor') }}">Edit Deck</a>
+		<a href="{{ url_for('view_card_1') }}">Start Studying</a>
+	</div>
+
+</body>
+</html>
