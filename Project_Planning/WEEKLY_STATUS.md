@@ -176,9 +176,9 @@ Meeting Recording:
 - Obstacles:
 
 **Jessica:**
-- Last Week: 
-- This Week:
-- Obstacles:
+- Last Week: Read blog/webistes on the Flask Application Structure 
+- This Week: Working on the SQL_TESTING
+- Obstacles: Time, had less childcare than expected last week. Childcare sent kid home sick.
 
 **Team Reflections:**
 
