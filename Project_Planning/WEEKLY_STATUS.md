@@ -156,6 +156,34 @@ Meeting Recording: n/a
 
 ---
 
+### Meeting Date: 7/22/22
+
+Meeting Recording: 
+
+**Derek:**
+- Last Week: 
+- This Week: 
+- Obstacles: 
+
+**Margarita:**
+- Last Week: Finalized mockup HTML templates and CSS stylesheet, learned how to use Javascript.
+- This Week: Complete web services lab, explore javascript for possible flashcardz features.
+- Obstacles: n/a
+
+**Jonathan:**
+- Last Week: 
+- This Week:
+- Obstacles:
+
+**Jessica:**
+- Last Week: 
+- This Week:
+- Obstacles:
+
+**Team Reflections:**
+
+---
+
 ### [TEMPLATE] Meeting Date: 
 
 Meeting Recording:
