@@ -1,0 +1,24 @@
+
+
+Table Name: users
+Table Description: Contains login information for all registered users.
+For each field of the table, provide name and short description.
+1. id = integer to serve as the primary key
+2. email = string to hold the user's email address.
+3. password = string to hold the user's hashed password.
+List of tests for verifying each table
+
+1. Use case name: Verify login is stored with valid email and password
+
+2. Use case name: Verify that password is appropriately hashed
+s
+Table Name: decks
+Table Description
+For each field of the table, provide name and short description.
+List of tests for verifying each table
+
+
+Table Name: cards
+Table Description
+For each field of the table, provide name and short description.
+List of tests for verifying each table
