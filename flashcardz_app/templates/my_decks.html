@@ -1,9 +1,12 @@
-<header>You are logged in as {{ email }}</header>
-<h1>Welcome to Your Account Home Page</h1>
-<h2> Your existing decks are below: </h2>
-{% for my_item in user_decks %}
-<a href="{{url_for('main_bp.edit_deck', email=email, deck_id=my_item.id)}}" class="decks">Edit Deck {{ my_item.name }}</a>
-{% endfor %}
-<br>
-<br>
-<a href="{{url_for('main_bp.create_deck', email=email)}}" class="add_deck">Add New Deck</a>
+{% extends 'layout.html' %}
+{% block content %}
+    <header>You are logged in as {{ email }}</header>
+    <h1>Welcome to Your Account Home Page</h1>
+    <h2> Your existing decks are below: </h2>
+    {% for my_item in user_decks %}
+    <a href="{{url_for('main_bp.edit_deck', email=email, deck_id=my_item.id)}}" class="decks">Edit Deck {{ my_item.name }}</a>
+    {% endfor %}
+    <br>
+    <br>
+    <a href="{{url_for('main_bp.create_deck', email=email)}}" class="add_deck">Add New Deck</a>
+{% endblock %}

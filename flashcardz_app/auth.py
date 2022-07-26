@@ -35,9 +35,9 @@ def register():
             login_user(user)
             return redirect(url_for('main_bp.my_decks', email=user.email))
 
-    return render_template("registration.html", form=form)
+    return render_template("registration.html", form=form, title="Register")
 
-
+@auth_bp.route('/')
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
     """
@@ -56,7 +56,7 @@ def login():
             flash("Invalid username or password")
             return redirect(url_for("auth_bp.login"))
 
-    return render_template('login.html', form=form)
+    return render_template('login.html', form=form, title="Login")
 
 
 @login_manager.user_loader

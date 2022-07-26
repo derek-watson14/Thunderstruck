@@ -1,40 +1,38 @@
-<h1><a href="{{ url_for('auth_bp.register') }}">Create a new Account!</a></h1>
-<form action="" method="post">
-   {{ form.hidden_tag() }}
-   <div>
-      {{ form.email(placeholder="email",
-      style='width: 50%;
-      font-weight: bold;
-      padding: 12px 20px ;
-      margin: 8px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box') }}
-      {% for error in form.email.errors %}
-      <p>{{ error }}</p>
-      {% endfor %}
-   </div>
-   <br>
-   <div>
-      {{ form.password(placeholder="password",
-      style='width: 50%;
-      font-weight: bold;
-      padding: 12px 20px ;
-      margin: 8px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box') }}
-      {% for error in form.password.errors %}
-      <p>{{ error }}</p>
-      {% endfor %}
-   </div>
-   <p>{{ form.remember() }} {{ form.remember.label }}</p>
-   <p>{{ form.submit(style ='background-color: #4CAF50;
-      color: white;
-      width: 50%;
-      padding: 14px 20px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 4px') }}
-   </p>
-</form>
+{% extends 'layout.html' %}
+{% block content %}
+   <h1>FLASHCARDZ</h1>
+   <h2>LOG IN </h2>
+   <form action="" method="post">
+      {{ form.hidden_tag() }}
+
+      <div>
+         EMAIL<br> 
+         {{ form.email(placeholder="Email") }}
+         {% for error in form.email.errors %}
+         <p>{{ error }}</p>
+         {% endfor %}
+      </div>
+      <br>
+
+      <div>
+         PASSWORD<br> 
+         {{ form.password(placeholder="Password") }}
+         {% for error in form.password.errors %}
+         <p>{{ error }}</p>
+         {% endfor %}
+      </div>
+      <br>
+
+      <div>
+         {{ form.remember() }} {{ form.remember.label }}    
+      </div>
+      <br>
+
+      <div>
+         {{ form.submit }}
+      </div>
+      <br>
+
+   </form>
+   <p><a href="{{ url_for('auth_bp.register') }}">Don't have an account? Sign up!</a></p>
+{% endblock %}

@@ -15,6 +15,11 @@ h2 {
 }
 
 
+br {
+	height: 20px;
+}
+
+
 body {
 	background-color: cornflowerblue;
 	font-family: helvetica;
@@ -74,9 +79,17 @@ p {
 
 
 input[type=button] {
-        background-color: blue;
+    background-color: blue;
 	color: white;
-        padding: 9px 24px;
+    padding: 9px 24px;
+	margin-bottom: 20px;
+
+}
+
+input[type=submit] {
+    background-color: blue;
+	color: white;
+    padding: 9px 24px;
 	margin-bottom: 20px;
 
 }

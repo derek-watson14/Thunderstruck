@@ -16,10 +16,10 @@ main_bp = Blueprint(
 # This associates the route with the main_bp blueprint that is configured above and registered in `__init__.py`
 # We can also using the decorator @login_required to require login to see these routes
 
-@main_bp.route('/')
-@main_bp.route('/home')
-def home():
-    return "<h1>Welcome to Flashcardz!</h1>"
+# @main_bp.route('/')
+# @main_bp.route('/home')
+# def home():
+#     return "<h1>Welcome to Flashcardz!</h1>"
 
 @main_bp.route('/<email>/mydecks')
 @login_required
@@ -28,7 +28,7 @@ def my_decks(email):
     current_user = User.query.filter_by(email=email).first()
     #step two, get collection of all decks owned by logged in user
     user_decks = Deck.query.filter_by(owner_id=current_user.id).all()
-    return render_template('my_decks.html', email=email, user_decks=user_decks)
+    return render_template('my_decks.html', email=email, user_decks=user_decks, title="My Decks")
 
 @main_bp.route('/<email>/decks/create', methods=['GET', 'POST'])
 @login_required
@@ -42,7 +42,7 @@ def create_deck(email):
         db.session.commit()
         return redirect(url_for('main_bp.my_decks', email=email))
 
-    return render_template('create_deck.html', form=form)
+    return render_template('create_deck.html', form=form, title="Create Deck")
 
 @main_bp.route('/<email>/<deck_id>/decks/edit', methods=['GET', 'POST'])
 @login_required
@@ -54,7 +54,7 @@ def edit_deck(email, deck_id):
         db.session.add(new_card)
         db.session.commit()
         user_cards = Card.query.filter_by(deck_id=deck_id).all()
-        return render_template('my_cards.html', email=email, user_cards=user_cards, form=form)
+        return render_template('my_cards.html', email=email, user_cards=user_cards, form=form, title="Edit Deck")
 
     
     return render_template('my_cards.html', email=email, user_cards=user_cards, form=form)
