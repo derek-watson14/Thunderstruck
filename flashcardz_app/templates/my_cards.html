@@ -7,9 +7,23 @@
    {% if user_cards is none %}
       <p>No Cards yet</p>  
    {% else %}
-      {% for my_item in user_cards %}
-         <div class="cards">{{ my_item }}</div>
-      {% endfor %} 
+      <div class="card-container">
+         {% for card in user_cards %}
+            <div class="card" flipped="false">
+               <div class="card-inner">
+                  <div class="card-front">
+                     <h3>Front: </h3>
+                     <p>{{ card.front }}</p>
+                  </div>
+                  <div class="card-back">
+                     <h3>Back: </h3>
+                     <p>{{ card.back }}</p>
+                  </div>
+               </div>
+               <a class="edit-card" href="#">Edit</a>
+            </div>
+         {% endfor %} 
+      </div>
    {% endif %}
 
 
@@ -60,4 +74,8 @@
    </form>
 
    <a href="{{url_for('main_bp.my_decks', email=email)}}" class="my_decks">Go to My Decks</a>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='flip-card.js') }}"></script>
 {% endblock %}
