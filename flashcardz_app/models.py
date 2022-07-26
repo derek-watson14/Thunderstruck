@@ -60,7 +60,8 @@ class Card(db.Model):
     def __repr__(self):
         # Show only first n chars of string in print statement
         CHARS = 20
-        front_partial = self.front[:CHARS] + "..." if len(self.front) > CHARS else ""
-        back_partial = self.back[:CHARS] + "..." if len(self.front) > CHARS else ""
+        front_partial = self.front[:CHARS] + "..." if len(self.front) > CHARS else self.front
+        back_partial = self.back[:CHARS] + "..." if len(self.front) > CHARS else self.back
+        # return "<Card front={} back={}>".format(front_partial, back_partial)
         return "<Card front={} back={}>".format(front_partial, back_partial)
 
