@@ -161,9 +161,9 @@ Meeting Recording: n/a
 Meeting Recording: 
 
 **Derek:**
-- Last Week: 
-- This Week: 
-- Obstacles: 
+- Last Week: Cleaned up files in the repo, and updated it's structure to be more modular and follow the 'Application Factory' pattern
+- This Week: Will hook up the HTML and CSS files to be served by our existing routes and work with our existing forms.
+- Obstacles: n/a
 
 **Margarita:**
 - Last Week: Finalized mockup HTML templates and CSS stylesheet, learned how to use Javascript.
