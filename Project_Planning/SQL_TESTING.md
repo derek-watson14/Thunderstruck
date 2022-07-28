@@ -71,7 +71,7 @@
         Test steps
             1. Register a new user with a known test email and password
             2. Check that we can retrieve that new user's email from the database
-            3. Check that the new user's password is a hashed string (need to know what the expected hashed value is)
+            3. Check that the new user's password is a hashed string (is not equal to the original password string)
             4. Check that the hashed string in the DB matches the string from hashing the plain text password
         Expected result
             Test emaail and a hashed password are in the DB, that hash should match the hash the test password produces
@@ -97,19 +97,19 @@
 - **Parameters**: user_id
 - **return values**: list of decks owned by the user
 - **List of tests for verifying access method**: 
-    - ###### [ USE CASE NAME ]
+    - ###### Verify that user decks are stored in the database
         ```
         Description
-            [ TO DO ]
+            Test that we can view all of the user's decks
         Pre-conditions
-            [ TO DO ]
+            The user is logged-in and has existing decks
         Test steps
-            1. [ TO DO ]
-            2. [ TO DO ]
+            1. Login the user and create 2 new decks
+            2. Check that we can retrieve the list of both existings decks (deck names) for this user from the database.
         Expected result
-            [ TO DO ]
+           We view the names of both test decks in the database query
         Post-conditions
-            [ TO DO ]
+           2 new decks are created with expected columns in the database that are linked to this user's account through the owner_id
         ```
 <br>
 
@@ -118,62 +118,61 @@
 - **Parameters**: user_id, deck_id
 - **return values**: deck object (name, id, card count), list containing all associated cards, card score for all cards
 - **List of tests for verifying access method**: 
-    - ###### [ USE CASE NAME ]
+    - ###### Verify that deck name changes are stored in the database
         ```
         Description
-            [ TO DO ]
+            Test that we can view the updated Deck name after it is updated
         Pre-conditions
-            [ TO DO ]
+            The user owns a deck
         Test steps
-            1. [ TO DO ]
-            2. [ TO DO ]
+            1. Change the name of the owned  deck through the Deck Overview "deck name edit" functionality.
+            2. Check that we can retrieve the updated name for this deck from the database
         Expected result
-            [ TO DO ]
+            We view the updated deck name in the database query 
         Post-conditions
-            [ TO DO ]
-        ```
-<br>
+             The deck name is updated in the Deck table
+         ```
+- **NOTE:** We list additional tests in the Study Deck access method below. These tests can also be replicated for the Deck Overview access method.
 
+<br>
 - **Name**: Study Deck
 - **Description**: Return a single deck and all of that deck's cards so they can be reviewed by a user
 - **Parameters**: user_id, deck_id
 - **return values**: deck object (name, id, card count) and list containing all associated cards
 - **List of tests for verifying access method**:
-    - ###### [ USE CASE NAME ]
+    - ###### Verify the blank deck is stored in the database
         ```
         Description
-            [ TO DO ]
-        Pre-conditions
-            [ TO DO ]
-        Test steps
-            1. [ TO DO ]
-            2. [ TO DO ]
-        Expected result
-            [ TO DO ]
-        Post-conditions
-            [ TO DO ]
-        ```
+                Test that the cardcount is zero when the Deck does not have any cards.
+        Preconditions: 
+                Use an established user account with a blank deck
+        Test Steps:
+                1. Create a new Deck and no cards. (Create a new instance of the Deck class)
+                2. Navigate to Study Deck
+		3. Check that the card_count = 0 in the database query
+                4. Test that we can retrieve the correct corresponding user credentials ( email) from the users table
+
+	Expected result
+	 	We view a card_count field of 0 in the database and the corresponding user email from the database query
+	Post-conditions
+		The Deck exists in the database and has 0 cards associated with it
+
+    - ###### Verify the card count and list of cards  when the Deck has cards
+        Description
+                Verify that the card_count increments by 1 when a new card is created
+        
+        Preconditions:
+                Use an established user account and existing blank deck
+        Test Steps:  
+                1. Create a new card with front and back text (Create a new instance of the Card class)
+                2. Navigate to Study Deck
+                3. Check that the card_count = 1 and can view the updated list of cards associated with the deck in the database query
+     	Expected Result
+		We view a card_count of 1 can view the the front and back text of the existing card.
+	Post-conditions
+		The Card Table is updated with the new card.
+  
 <br>
-
-
-#### Deck Tests:
-1. Verify that the new blank deck is populated in the Decks table and the card_count is zero.
--Preconditions: Use an established user account
--Steps:
-    1. Login as a user and create a new Deck called "Test Deck 1." (Create a new instance of the Deck class)
-    2. Test that the name field = "Test Deck 1"
-    3. Test that the card_count = 0.
-    4. Test that we can retrieve the correct corresponding user email from the users table
-
-2. Verify that the card_count is 0 when the Deck is first created
-
-3. Verify that the card_count increments by 1 when a new card is created
--Steps:
-    1. Login as a user and access "Test Deck 1"
-    2. Create a new card with front and back text (Create a new instance of the Card class)
-    3. Test that the card_count = 1 in the database
-
-
 -----
 
 ## Card Table
@@ -191,32 +190,26 @@
 - **Parameters**: user_id, deck_id, optional: card_id
 - **return values**: none
 - **List of tests for verifying access method**:
-    - ###### [ USE CASE NAME ]
+    - ###### Verify that user can edit a card
         ```
         Description
-            [ TO DO ]
+            Verify that if a card exists and they click "edit" and change the front text, the card is updated in the database
         Pre-conditions
-            [ TO DO ]
+            The is a logged-in user with an existing deck and 1 card in the deck
         Test steps
-            1. [ TO DO ]
-            2. [ TO DO ]
+            1. Update the front text of the card
+            2. Check that the database has the updated front text of the card.
+	    3. Check that the card_count for that deck remains the same in the database 
         Expected result
-            [ TO DO ]
+            The database value of the front text of that card is updated.
         Post-conditions
-            [ TO DO ]
+	    The card table is updated and the deck table remains in its original state
+           
         ```
 <br>
 
 - **NOTE:** Other methods that access data from the cards table include Deck Overview, Edit Deck and Study Deck. These methods and their tests are reviewed in the **Decks Table** section above.
 <br>
-
-#### Card Tests:
-1. Verify that the new card is populated in the Cards table
--Preconditions: Using an established user account and already created a Deck
--Steps:
-1. Login as a user and create a new card. (Create a new instance of the Card class)
-2. Test that we can retrieve the card front and back text from the database
-3. Test that we can retrieve the correct Deck name from the Deck table (from the database)
 
 
 -----
@@ -238,24 +231,23 @@
 - **Parameters**: user_id, card_id, correct (boolean)
 - **return values**: deck object (name, id, card count) and list containing all associated card object
 - **List of tests for verifying access method**:
-    - ###### [ USE CASE NAME ]
-        ```
-        Description
-            [ TO DO ]
-        Pre-conditions
-            [ TO DO ]
-        Test steps
-            1. [ TO DO ]
-            2. [ TO DO ]
-        Expected result
-            [ TO DO ]
-        Post-conditions
-            [ TO DO ]
-        ```
-<br>
-
 
 - **NOTE:** Deck overview also accesses the cardscore table. This method and it's tests are reviewed in the **Decks Table** section above.
 <br>
 
 #### Cardscore Tests:
+
+    - ###### Verify that the correct and incorrect fields are updated in the database
+    ```
+    Description
+
+        Pre-conditions
+            A valid user is logged-in and has an existing deck with 2 cards
+        Test steps
+            1. A user indicates that a answer was correct card #1  incorrect for card #2.
+            2. Check that the correct field is properly updated for those two cards in the database query
+        Expected result
+            The correct field for card #1 = True. The correct field for card #2 = False.
+        Post-conditions
+            The card table is updated with new values but the Deck table has its original values
+        ```
