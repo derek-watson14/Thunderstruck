@@ -171,9 +171,9 @@ Meeting Recording:
 - Obstacles: n/a
 
 **Jonathan:**
-- Last Week: 
-- This Week:
-- Obstacles:
+- Last Week: Built functionality to create decks and view decks at the my_decks route
+- This Week: Build functionality to create cards and beginning exploring options to study and score decks
+- Obstacles: n/a
 
 **Jessica:**
 - Last Week: Read blog/webistes on the Flask Application Structure 
