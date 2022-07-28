@@ -172,6 +172,7 @@
             The Card Table is updated with the new card.
         ```
 <br>
+
 -----
 
 ## Card Table
@@ -206,7 +207,7 @@
         ```
 <br>
 
-- **NOTE:** Other methods that access data from the cards table include Deck Overview, Edit Deck and Study Deck. These methods and their tests are reviewed in the **Decks Table** section above.
+- **NOTE:** Deck Overview and Study Deck also access the Card table. These methods and their tests are reviewed in the **Decks Table** section above.
 <br>
 
 
@@ -244,5 +245,5 @@
             The card table is updated with new values but the Deck table has its original values
         ```
 
-- **NOTE:** Deck overview also accesses the cardscore table. This method and it's tests are reviewed in the **Decks Table** section above.
+- **NOTE:** The cardscore table is also accessed in Deck Overview. This method and its tests are reviewed in the **Decks Table** section above.
 <br>
