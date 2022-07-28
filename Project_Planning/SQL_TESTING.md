@@ -46,13 +46,14 @@
         Test steps
             1. Log in with user information that is known to exist in the db
             2. Check that a user object is returned
-            3. Check that that user object contains the correct email and a massing password hash
+            3. Check that the user object contains the correct email and a matching password hash
             4. Check that the user is logged in
         Expected result
-            The email and password hash of the successfully returned user match those input for the test
+            The email and password hash of the successfully returned user matches those input for the test
         Post-conditions
             User is validated with database and successfully signed into their account.
             The account session details are logged in database. 
+	    Logged in user can access protected webpages with @login-required decorator
         ```
 <br>
 
@@ -73,7 +74,7 @@
             3. Check that the new user's password is a hashed string (is not equal to the original password string)
             4. Check that the hashed string in the DB matches the string from hashing the plain text password
         Expected result
-            Test emaail and a hashed password are in the DB, that hash should match the hash the test password produces
+            Test emaail and a hashed password are in the DB; test that hash matches the hash the test password produces
         Post-conditions
             User is created with the expected credentials within the database
         ```
@@ -104,9 +105,9 @@
             The user is logged-in and has existing decks
         Test steps
             1. Login the user and create 2 new decks
-            2. Check that we can retrieve the list of both existings decks (deck names) for this user from the database.
+            2. Check that we can retrieve the list of all decks - both pre-existings decks (deck names) and those previously created for this user from the database.
         Expected result
-           We view the names of both test decks in the database query
+           We view the names of all decks in the database query - both pre-existing decks and those created as part of the test
         Post-conditions
            2 new decks are created with expected columns in the database that are linked to this user's account through the owner_id
         ```
@@ -134,29 +135,30 @@
 - **NOTE:** We list additional tests in the Study Deck access method below. These tests can also be replicated for the Deck Overview access method.
 <br>
 
-- **Name**: Study Deck
-- **Description**: Return a single deck and all of that deck's cards so they can be reviewed by a user
+- **Name**: Study Deck (also includes Cards and CardScores table components)
+- **Description**: Return a single deck and all of that deck's cards so they can be reviewed by a user and scored based on an attempt
 - **Parameters**: user_id, deck_id
 - **return values**: deck object (name, id, card count) and list containing all associated cards
 - **List of tests for verifying access method**:
-    - ###### Verify the blank deck is stored in the database
+    - ###### Verify that cards can be studied and scored 
         ```
         Description
-            Test that the cardcount is zero when the Deck does not have any cards.
+            Test that all of the cards within a deck can be viewed, studied, and scored by logged in user.
         Preconditions: 
-            Use an established user account with a blank deck
+            Use an established user account with a previously created deck with 5 cards
         Test Steps:
-            1. Create a new Deck and no cards. (Create a new instance of the Deck class)
-            2. Navigate to Study Deck
-		    3. Check that the card_count = 0 in the database query
-            4. Test that we can retrieve the correct corresponding user credentials ( email) from the users table
+            1. Login as user and select deck with 5 established cards
+            2. Navigate to Study Deck route
+	    3. Check that the card_count = 5 in the database query for that deck and 5 cards are displayed in the UI to study
+	    4. Check that the front of each card matches the text added in the database as previously created by user for that decks.id
+            5. Check that the back of the card (answer) can be displayed by clicking on the card and user can designate a correct or incorrect score for all cards associated with deck_id
         Expected result
-            We view a card_count field of 0 in the database and the corresponding user email from the database query
+            We view a card_count field of 5 in the database and view cards in UI with correct front and back text for selected decks.id
         Post-conditions
-            The Deck exists in the database and has 0 cards associated with it
+            The Deck exists in the database and has 5 cards associated with it; card_scores is updated with study attempt
         ```
 
-    - ###### Verify the card count and list of cards  when the Deck has cards
+    - ###### Verify the card count and list of cards when the Deck has cards
         ```
         Description
             Verify that the card_count increments by 1 when a new card is created
@@ -167,7 +169,7 @@
             2. Navigate to Study Deck
             3. Check that the card_count = 1 and can view the updated list of cards associated with the deck in the database query
      	Expected Result
-		    We view a card_count of 1 can view the the front and back text of the existing card.
+		We view a card_count of 1 can view the the front and back text of the existing card.
         Post-conditions
             The Card Table is updated with the new card.
         ```
@@ -193,17 +195,17 @@
     - ###### Verify that user can edit a card
         ```
         Description
-            Verify that if a card exists and they click "edit" and change the front text, the card is updated in the database
+            Verify that if a card exists and logged in user clicks "edit" and changes the front text, the card is updated in the database
         Pre-conditions
-            The is a logged-in user with an existing deck and 1 card in the deck
+            There is a logged-in user with an existing deck and 1 card in the deck
         Test steps
             1. Update the front text of the card
             2. Check that the database has the updated front text of the card.
-	        3. Check that the card_count for that deck remains the same in the database 
+	    3. Check that the card_count for that deck remains the same in the database 
         Expected result
-            The database value of the front text of that card is updated.
+            The database value of the front text of the card is updated.
         Post-conditions
-	        The card table is updated and the deck table remains in its original state
+	    The card table is updated and the deck table remains in its original state
         ```
 <br>
 
@@ -233,16 +235,16 @@
     - ###### Verify that the \<*correct*> field is properly updated in the database
         ```
         Description
-            Test that when you click correct or incorrect in the app the db is updated properly
+            Test that when a logged in user clicks correct or incorrect in the app, the db is updated properly
         Pre-conditions
             A valid user is logged-in and has an existing deck with 2 cards
         Test steps
-            1. A user indicates that a answer was correct card #1  incorrect for card #2.
+            1. A logged in user selects via the UI that an answer was correct for card #1 and incorrect for card #2.
             2. Check that the correct field is properly updated for those two cards in the database query
         Expected result
             The correct field for card #1 = True. The correct field for card #2 = False.
         Post-conditions
-            The card table is updated with new values but the Deck table has its original values
+            The cardscores table is updated with the new values 
         ```
 
 - **NOTE:** The cardscore table is also accessed in Deck Overview. This method and its tests are reviewed in the **Decks Table** section above.
