@@ -97,6 +97,20 @@
 - **Parameters**: user_id
 - **return values**: list of decks owned by the user
 - **List of tests for verifying access method**: 
+    - ###### [ USE CASE NAME ]
+        ```
+        Description
+            [ TO DO ]
+        Pre-conditions
+            [ TO DO ]
+        Test steps
+            1. [ TO DO ]
+            2. [ TO DO ]
+        Expected result
+            [ TO DO ]
+        Post-conditions
+            [ TO DO ]
+        ```
 <br>
 
 - **Name**: Deck Overview
@@ -104,6 +118,20 @@
 - **Parameters**: user_id, deck_id
 - **return values**: deck object (name, id, card count), list containing all associated cards, card score for all cards
 - **List of tests for verifying access method**: 
+    - ###### [ USE CASE NAME ]
+        ```
+        Description
+            [ TO DO ]
+        Pre-conditions
+            [ TO DO ]
+        Test steps
+            1. [ TO DO ]
+            2. [ TO DO ]
+        Expected result
+            [ TO DO ]
+        Post-conditions
+            [ TO DO ]
+        ```
 <br>
 
 - **Name**: Study Deck
@@ -111,34 +139,24 @@
 - **Parameters**: user_id, deck_id
 - **return values**: deck object (name, id, card count) and list containing all associated cards
 - **List of tests for verifying access method**:
+    - ###### [ USE CASE NAME ]
+        ```
+        Description
+            [ TO DO ]
+        Pre-conditions
+            [ TO DO ]
+        Test steps
+            1. [ TO DO ]
+            2. [ TO DO ]
+        Expected result
+            [ TO DO ]
+        Post-conditions
+            [ TO DO ]
+        ```
 <br>
 
 
 #### Deck Tests:
-```
-Use case name
-    Verify login with valid user name and password
-Description
-    Test the Google login page
-Pre-conditions
-    User has valid user name and password
-Test steps
-    1. Navigate to login page
-    2. Provide valid user name
-    3. Provide valid password
-    4. Click login button
-Expected result
-    User should be able to login
-Actual result
-    User is navigated to dashboard with successful login
-Status (Pass/Fail)
-    Pass
-Notes
-    N/A
-Post-conditions
-    User is validated with database and successfully signed into their account.
-    The account session details are logged in database. 
-```
 1. Verify that the new blank deck is populated in the Decks table and the card_count is zero.
 -Preconditions: Use an established user account
 -Steps:
@@ -173,6 +191,20 @@ Post-conditions
 - **Parameters**: user_id, deck_id, optional: card_id
 - **return values**: none
 - **List of tests for verifying access method**:
+    - ###### [ USE CASE NAME ]
+        ```
+        Description
+            [ TO DO ]
+        Pre-conditions
+            [ TO DO ]
+        Test steps
+            1. [ TO DO ]
+            2. [ TO DO ]
+        Expected result
+            [ TO DO ]
+        Post-conditions
+            [ TO DO ]
+        ```
 <br>
 
 - **NOTE:** Other methods that access data from the cards table include Deck Overview, Edit Deck and Study Deck. These methods and their tests are reviewed in the **Decks Table** section above.
@@ -206,7 +238,22 @@ Post-conditions
 - **Parameters**: user_id, card_id, correct (boolean)
 - **return values**: deck object (name, id, card count) and list containing all associated card object
 - **List of tests for verifying access method**:
+    - ###### [ USE CASE NAME ]
+        ```
+        Description
+            [ TO DO ]
+        Pre-conditions
+            [ TO DO ]
+        Test steps
+            1. [ TO DO ]
+            2. [ TO DO ]
+        Expected result
+            [ TO DO ]
+        Post-conditions
+            [ TO DO ]
+        ```
 <br>
+
 
 - **NOTE:** Deck overview also accesses the cardscore table. This method and it's tests are reviewed in the **Decks Table** section above.
 <br>
