@@ -6,13 +6,6 @@
 - cards
 - cardscores
 
-### Data Access Method Template
-- **Name**:
-- **Description**:
-- **Parameters**:
-- **return values**:
-- **List of tests for verifying each access method**: 
-
 -----
 
 ## User Table
@@ -25,24 +18,67 @@
 
 #### User Data Access Methods:
 - **Name**: Login
-- **Description**: Verify a user exists, compare password hashes, return user object
+- **Description**: Log a user in by getting data from an HTML form and verifying their password
 - **Parameters**: email, password
 - **return values**: user object containing all data for that user
-- **List of tests for verifying each access method**: 
+- **List of tests for verifying access method**: 
+    - ###### Verify that login is not possible when an email is not stored in the user table
+        ```
+        Description
+            Test that you cannot login with an email not stored in the DB
+        Pre-conditions
+            The email used for the test is not in the DB
+        Test steps
+            1. Log in with an email known to not be in the DB
+            2. Check that NULL is returned
+            3. Check that the user is NOT logged in
+        Expected result
+            An error message is displayed on the screen and the user is NOT logged in
+        Post-conditions
+            The user remains on the login page but a message is desplayed indicating the specified user was not found.
+        ```
+    - ###### Verify that login returns the correct user and logs them in
+        ```
+        Description
+            Test that when logging in, the correct user is returned from the database
+        Pre-conditions
+            Email and password are valid at submission and correct to a known user
+        Test steps
+            1. Log in with user information that is known to exist in the db
+            2. Check that a user object is returned
+            3. Check that that user object contains the correct email and a massing password hash
+            4. Check that the user is logged in
+        Expected result
+            The email and password hash of the successfully returned user match those input for the test
+        Post-conditions
+            User is validated with database and successfully signed into their account.
+            The account session details are logged in database. 
+        ```
 
-#### Tests:
-1. Verify user profile is stored with an email and hashed  password
--Preconditions: Email and password are valid
--Steps:
-    1.  Register a new user with the email: cool@test.edu and password = coolpassword (Create a new instance of the Users class)
-    2.  Test that we can retrieve that new user's email from the database
-    3.  Test that the new user's password is a hashed string (need to know what the expected hashed value is)
+<br>
 
-
-2. Verify that you cannot store a user account with a blank password (This is a edge-case check rather than a test we would run every time I think)
--Steps:
-    1. Register a new user with an email: blank@test.edu and do not fill out the password field. 
-    2. Test that we cannot retrieve the new user's email from the database.
+- **Name**: Register
+- **Description**: Register a new user in the database by getting input from an HTML form
+- **Parameters**: email, password1, password2 (must match password1)
+- **return values**: If user already exists, redirect. Else return created user object
+- **List of tests for verifying access method**: 
+    - ###### Verify user profile is stored with an email and hashed password
+        ```
+        Description
+            Test that the user's data has been correctly stored
+        Pre-conditions
+            Email and password are valid at submission
+        Test steps
+            1. Register a new user with a known test email and password
+            2. Check that we can retrieve that new user's email from the database
+            3. Check that the new user's password is a hashed string (need to know what the expected hashed value is)
+            4. Check that the hashed string in the DB matches the string from hashing the plain text password
+        Expected result
+            Test emaail and a hashed password are in the DB, that hash should match the hash the test password produces
+        Post-conditions
+            User is created with the expected credentials within the database
+        ```
+<br>
 
 -----
 
@@ -56,8 +92,53 @@
     - **owner_id**: Foreign Key that represents the corresponding id in the user table. This field links the deck to the user.
 
 #### Deck Data Access Methods:
+- **Name**: My Decks
+- **Description**: Return all decks created by a user to populate the users account page
+- **Parameters**: user_id
+- **return values**: list of decks owned by the user
+- **List of tests for verifying access method**: 
+<br>
 
-#### Tests:
+- **Name**: Deck Overview
+- **Description**: Return a single deck and all associated cards and card scores. Deck name can be edited and edit card buttons will appear if user owns this deck
+- **Parameters**: user_id, deck_id
+- **return values**: deck object (name, id, card count), list containing all associated cards, card score for all cards
+- **List of tests for verifying access method**: 
+<br>
+
+- **Name**: Study Deck
+- **Description**: Return a single deck and all of that deck's cards so they can be reviewed by a user
+- **Parameters**: user_id, deck_id
+- **return values**: deck object (name, id, card count) and list containing all associated cards
+- **List of tests for verifying access method**:
+<br>
+
+
+#### Deck Tests:
+```
+Use case name
+    Verify login with valid user name and password
+Description
+    Test the Google login page
+Pre-conditions
+    User has valid user name and password
+Test steps
+    1. Navigate to login page
+    2. Provide valid user name
+    3. Provide valid password
+    4. Click login button
+Expected result
+    User should be able to login
+Actual result
+    User is navigated to dashboard with successful login
+Status (Pass/Fail)
+    Pass
+Notes
+    N/A
+Post-conditions
+    User is validated with database and successfully signed into their account.
+    The account session details are logged in database. 
+```
 1. Verify that the new blank deck is populated in the Decks table and the card_count is zero.
 -Preconditions: Use an established user account
 -Steps:
@@ -86,9 +167,18 @@
     - **back**: string that represents the flash card back text
     - **deck_id**: Foreign Key that represents the corresponding id in the deck table. This field links the card to the deck.
 
-#### Deck Data Access Methods:
+#### Card Data Access Methods:
+- **Name**: Edit/Create Card
+- **Description**: Edit or create a card, if the logged in user owns the deck. If card_id is passed edit a card, if not create a card
+- **Parameters**: user_id, deck_id, optional: card_id
+- **return values**: none
+- **List of tests for verifying access method**:
+<br>
 
-#### Tests:
+- **NOTE:** Other methods that access data from the cards table include Deck Overview, Edit Deck and Study Deck. These methods and their tests are reviewed in the **Decks Table** section above.
+<br>
+
+#### Card Tests:
 1. Verify that the new card is populated in the Cards table
 -Preconditions: Using an established user account and already created a Deck
 -Steps:
@@ -111,5 +201,14 @@
 
 
 #### Cardscore Data Access Methods:
+- **Name**: Indicate Correct/Incorrect Button
+- **Description**: When using the study deck function, after flipping a card a user can indicate if their answer was correct or incorrect. The data is sent to the server
+- **Parameters**: user_id, card_id, correct (boolean)
+- **return values**: deck object (name, id, card count) and list containing all associated card object
+- **List of tests for verifying access method**:
+<br>
 
-#### Tests:
+- **NOTE:** Deck overview also accesses the cardscore table. This method and it's tests are reviewed in the **Decks Table** section above.
+<br>
+
+#### Cardscore Tests:
