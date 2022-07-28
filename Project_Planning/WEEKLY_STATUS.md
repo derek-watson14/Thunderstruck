@@ -167,7 +167,7 @@ Meeting Recording:
 
 **Margarita:**
 - Last Week: Finalized mockup HTML templates and CSS stylesheet, learned how to use Javascript.
-- This Week: Complete web services lab, explore javascript for possible flashcardz features.
+- This Week: Complete web services lab, explore javascript for possible flashcardz features, create slide deck for presentation.
 - Obstacles: n/a
 
 **Jonathan:**
