@@ -54,7 +54,6 @@
             User is validated with database and successfully signed into their account.
             The account session details are logged in database. 
         ```
-
 <br>
 
 - **Name**: Register
@@ -133,8 +132,8 @@
              The deck name is updated in the Deck table
          ```
 - **NOTE:** We list additional tests in the Study Deck access method below. These tests can also be replicated for the Deck Overview access method.
-
 <br>
+
 - **Name**: Study Deck
 - **Description**: Return a single deck and all of that deck's cards so they can be reviewed by a user
 - **Parameters**: user_id, deck_id
@@ -143,35 +142,35 @@
     - ###### Verify the blank deck is stored in the database
         ```
         Description
-                Test that the cardcount is zero when the Deck does not have any cards.
+            Test that the cardcount is zero when the Deck does not have any cards.
         Preconditions: 
-                Use an established user account with a blank deck
+            Use an established user account with a blank deck
         Test Steps:
-                1. Create a new Deck and no cards. (Create a new instance of the Deck class)
-                2. Navigate to Study Deck
-		3. Check that the card_count = 0 in the database query
-                4. Test that we can retrieve the correct corresponding user credentials ( email) from the users table
-
-	Expected result
-	 	We view a card_count field of 0 in the database and the corresponding user email from the database query
-	Post-conditions
-		The Deck exists in the database and has 0 cards associated with it
+            1. Create a new Deck and no cards. (Create a new instance of the Deck class)
+            2. Navigate to Study Deck
+		    3. Check that the card_count = 0 in the database query
+            4. Test that we can retrieve the correct corresponding user credentials ( email) from the users table
+        Expected result
+            We view a card_count field of 0 in the database and the corresponding user email from the database query
+        Post-conditions
+            The Deck exists in the database and has 0 cards associated with it
+        ```
 
     - ###### Verify the card count and list of cards  when the Deck has cards
+        ```
         Description
-                Verify that the card_count increments by 1 when a new card is created
-        
+            Verify that the card_count increments by 1 when a new card is created
         Preconditions:
-                Use an established user account and existing blank deck
+            Use an established user account and existing blank deck
         Test Steps:  
-                1. Create a new card with front and back text (Create a new instance of the Card class)
-                2. Navigate to Study Deck
-                3. Check that the card_count = 1 and can view the updated list of cards associated with the deck in the database query
+            1. Create a new card with front and back text (Create a new instance of the Card class)
+            2. Navigate to Study Deck
+            3. Check that the card_count = 1 and can view the updated list of cards associated with the deck in the database query
      	Expected Result
-		We view a card_count of 1 can view the the front and back text of the existing card.
-	Post-conditions
-		The Card Table is updated with the new card.
-  
+		    We view a card_count of 1 can view the the front and back text of the existing card.
+        Post-conditions
+            The Card Table is updated with the new card.
+        ```
 <br>
 -----
 
@@ -199,12 +198,11 @@
         Test steps
             1. Update the front text of the card
             2. Check that the database has the updated front text of the card.
-	    3. Check that the card_count for that deck remains the same in the database 
+	        3. Check that the card_count for that deck remains the same in the database 
         Expected result
             The database value of the front text of that card is updated.
         Post-conditions
-	    The card table is updated and the deck table remains in its original state
-           
+	        The card table is updated and the deck table remains in its original state
         ```
 <br>
 
@@ -231,16 +229,10 @@
 - **Parameters**: user_id, card_id, correct (boolean)
 - **return values**: deck object (name, id, card count) and list containing all associated card object
 - **List of tests for verifying access method**:
-
-- **NOTE:** Deck overview also accesses the cardscore table. This method and it's tests are reviewed in the **Decks Table** section above.
-<br>
-
-#### Cardscore Tests:
-
-    - ###### Verify that the correct and incorrect fields are updated in the database
-    ```
-    Description
-
+    - ###### Verify that the \<*correct*> field is properly updated in the database
+        ```
+        Description
+            Test that when you click correct or incorrect in the app the db is updated properly
         Pre-conditions
             A valid user is logged-in and has an existing deck with 2 cards
         Test steps
@@ -251,3 +243,6 @@
         Post-conditions
             The card table is updated with new values but the Deck table has its original values
         ```
+
+- **NOTE:** Deck overview also accesses the cardscore table. This method and it's tests are reviewed in the **Decks Table** section above.
+<br>
