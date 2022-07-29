@@ -184,6 +184,46 @@ Meeting Recording:
 
 ---
 
+### Meeting Date: 7/29/22
+
+Meeting Recording: n/a
+
+**Derek:**
+- Last Week: Integrated Javascript/CSS files to the existing templates, added layout template.
+- This Week: Work on last minute features, update ERD and paste in slide deck
+- Obstacles: n/a
+
+**Margarita:**
+- Last Week: Created slide deck for final presentation, worked on web services assignment
+- This Week: Finalize presentation, start on final documentation milestone, 
+- Obstacles: n/a
+
+**Jonathan:**
+- Last Week: 
+- This Week: Record demo video
+- Obstacles:
+
+**Jessica:**
+- Last Week: Leared about Pytest for flask, 
+- This Week: Set up pytest framework, write a couple of tests 
+- Obstacles: technical difficulties
+
+**Team Reflections:**
+
+What's left?
+
+- Finish presentation - Margarita
+- Practice presentation - all, Derek to schedule
+- Testing - Jess & Derek
+- Record demo video - Jonathan
+- Build final documentation milestone - Margarita
+- Missing functionality: - Derek & Jonathan
+ - Edit Card ?
+ - Study Deck
+ - Log out button on "My Decks" page
+
+---
+
 ### [TEMPLATE] Meeting Date: 
 
 Meeting Recording:
