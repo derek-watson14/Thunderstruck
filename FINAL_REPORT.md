@@ -17,6 +17,24 @@
 ## Version control repository link 
 [Git Repository](https://github.com/derek-watson14/Thunderstruck.git)
 
+## Final status of the project
+**What you completed**
+- User can create account
+- User can log into account
+- User can create decks
+- User can add card questions and answers
+- User can edit card questions and asnwers
+
+**What you were in the middle of implementing**
+- n/a
+
+**What you had planned for the future**
+- Add score tracking feature
+- Add a search or explore other deck feature
+
+**Any known problems (bugs, issues)**
+- Edit button?
+
 ### Make sure that your repository has the following files committed to remote repository:
 - [x] [REAMDE.md](https://github.com/derek-watson14/Thunderstruck/blob/main/README.md)
 - [x] [WEEKLY_STATUS.md](https://github.com/derek-watson14/Thunderstruck/blob/main/Project_Planning/WEEKLY_STATUS.md)
