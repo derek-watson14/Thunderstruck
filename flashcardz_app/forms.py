@@ -29,3 +29,4 @@ class AddCardForm(FlaskForm):
 class AddAnswerForm(FlaskForm):
     yes = BooleanField("Yes")
     no = BooleanField("No")
+    submit = SubmitField('Submit')

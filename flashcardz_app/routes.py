@@ -71,9 +71,6 @@ def study(email, deck_id, card_id=0, methods=['GET', 'POST']):
     
     card_id = int(card_id)
     cards = Card.query.filter_by(deck_id=deck_id).all() #returns list of all cards
-    print(cards)
-    print(cards[card_id].id)
-    print(cards[0].id)
     current_card = cards[card_id]  #start with first card in list
     deck = Deck.query.filter_by(id=deck_id).one()
     deck_name = deck.name
