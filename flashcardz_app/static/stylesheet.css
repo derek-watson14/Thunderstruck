@@ -193,3 +193,10 @@ input[type=password] {
 	color: white;
 	transform: rotateY(180deg);
   }
+
+  .study-container {
+	width: 100%;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+  }

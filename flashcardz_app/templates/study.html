@@ -6,29 +6,29 @@
 
 <h3 style = "color: blue; margin-left:100px;"><a href="{{ url_for('main_bp.my_decks', email=email) }}">My Decks</a></h3>
 <h3 style = "color: blue; margin-left:100px;"><a href="{{ url_for('main_bp.deck_overview', email=email, deck_id=deck_id) }}">Deck Overview</a></h3>
-
-<div class="card" flipped="false">
-    <div class="card-inner">
-       <div class="card-front">
-          <h3>Front: </h3>
-          <p>{{ current_card.front }}</p>
-          <div class="btn-container">
-             <button class="flip-btn" type="button">Check</button>
+<div class="study-container">
+   <div class="card" flipped="false">
+       <div class="card-inner">
+          <div class="card-front">
+             <h3>Front: </h3>
+             <p>{{ current_card.front }}</p>
+             <div class="btn-container">
+                <button class="flip-btn" type="button">Check</button>
+             </div>
           </div>
-       </div>
-       <div class="card-back">
-          <h3>Back: </h3>
-          <p>{{ current_card.back }}</p>
-          <div class="btn-container">
-             <button class="correct-btn" type="button" correct='true'>Correct</button>
-             <button class="correct-btn" type="button" correct='false'>Incorrect</button>
-             <br>
-             <button class="retry-btn" type="button">Retry</button>
-          </div>
+          <div class="card-back">
+             <h3>Back: </h3>
+             <p>{{ current_card.back }}</p>
+             <div class="btn-container">
+                <button class="correct-btn" type="button" correct='true'>Correct</button>
+                <button class="correct-btn" type="button" correct='false'>Incorrect</button>
+                <br>
+                <button class="retry-btn" type="button">Retry</button>
+             </div>
+         </div>
       </div>
    </div>
 </div>
-<button id="recScore" type="button">Correct</button>
 
  <h3 style = "color: blue; margin-left:100px;"><a href="{{ url_for('main_bp.edit_deck', email=email, deck_id=deck_id) }}">Edit Deck</a></h3>
 
@@ -37,7 +37,6 @@
    
    // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
     async function putScore(url, data) {
-      console.log(data);
       const response = await fetch(score_route, {
          method: 'PUT', 
          mode: 'cors', 
@@ -56,10 +55,13 @@
     function recordScore(e) {
       const correct = e.target.getAttribute("correct");
       const isCorrect = (correct === 'true');
-      putScore(score_route, {correct: isCorrect})
-         .then(data => {
-            console.log(data);
-         })
+      putScore(score_route, {
+         correct: isCorrect,
+         card_id: "{{ card_id }}",
+         email: "{{ email }}"
+      }).then(data => {
+         console.log(data);
+      })
     }
     const correctBtn = document.querySelectorAll(".correct-btn")
     correctBtn.forEach(btn => {

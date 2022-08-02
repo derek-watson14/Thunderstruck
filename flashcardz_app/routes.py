@@ -50,7 +50,14 @@ def edit_deck(email, deck_id):
     user_cards = Card.query.filter_by(deck_id=deck_id).all()
     form = AddCardForm()
     if form.validate_on_submit():
-        new_card = Card(front=form.front.data, back=form.back.data, deck_id=deck_id)
+        new_card = Card(
+            front=form.front.data, 
+            back=form.back.data, 
+            deck_id=deck_id, 
+            attempts=0,
+            correct=0,
+            last_attempt=False,
+        )
         db.session.add(new_card)
         db.session.commit()
         user_cards = Card.query.filter_by(deck_id=deck_id).all()
@@ -67,13 +74,10 @@ def deck_overview(email, deck_id):
     return render_template('deck_overview.html', email=email, deck_id=deck_id, deck_name=deck_name, cards=cards)
 
 @main_bp.route('/<email>/<deck_id>/<card_id>/study')
-def study(email, deck_id, card_id=0, methods=['GET', 'POST']):
+def study(email, deck_id, card_id, methods=['GET', 'POST']):
     
     card_id = int(card_id)
     cards = Card.query.filter_by(deck_id=deck_id).all() #returns list of all cards
-    print(cards)
-    print(cards[card_id].id)
-    print(cards[0].id)
     current_card = cards[card_id]  #start with first card in list
     deck = Deck.query.filter_by(id=deck_id).one()
     deck_name = deck.name
@@ -95,8 +99,17 @@ def study(email, deck_id, card_id=0, methods=['GET', 'POST']):
 @main_bp.route("/record-score", methods=["PUT"])
 @login_required
 def record_score():
-    print(request.json["correct"])
-    return "TEST!!!!"
+    data = request.json
+    card = Card.query.filter_by(id=int(data["card_id"])).first()
+    card.attempts += 1
+
+    if data["correct"]:
+        card.correct += 1
+        card.last_attempt = True
+    
+    db.session.commit()
+
+    return "Added"
 
 @main_bp.route("/logout")
 @login_required
