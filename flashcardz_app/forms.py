@@ -18,14 +18,9 @@ class LoginForm(FlaskForm):
 
 class CreateDecksForm(FlaskForm):
     deck_name = StringField('Name of Deck', validators=[DataRequired()])
-    card_count = IntegerField("Number of Cards", validators=[DataRequired()])
-    submit = SubmitField('Create')
+    submit = SubmitField('Create Deck')
 
 class AddCardForm(FlaskForm):
     front = StringField('Front of Card', validators=[DataRequired()])
     back = StringField('Back of Card', validators=[DataRequired()])
-    submit = SubmitField('Create')
-
-class AddAnswerForm(FlaskForm):
-    yes = BooleanField("Yes")
-    no = BooleanField("No")
+    submit = SubmitField('Create Card')

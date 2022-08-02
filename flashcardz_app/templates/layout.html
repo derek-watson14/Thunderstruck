@@ -8,6 +8,14 @@
     <title>{{ title }}</title>
 </head>
 <body>
+    {% if current_user.is_authenticated %}
+        <header>You are logged in as {{ current_user.email }}</header>
+        <a href="{{ url_for('main_bp.logout')}}">
+            <button type="button">
+                Log Out
+            </button>
+        </a> 
+    {% endif %}
     {% block content %}{% endblock %}
     {% block scripts %}{% endblock %}
 </body>

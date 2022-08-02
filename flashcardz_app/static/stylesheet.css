@@ -2,7 +2,7 @@
 
 
 h1 {
-        margin-bottom: 0px;
+    margin: 10px;
 	font-family: helvetica;
 }
 
@@ -12,6 +12,10 @@ h2 {
 	margin-bottom: 30px;
         color: blue;
         font-family: helvetica;;
+}
+
+h3 {
+	margin-bottom: 5px;
 }
 
 
@@ -148,8 +152,37 @@ input[type=password] {
 
 .card-container {
 	margin: 50px auto 20px auto;
-	max-width: 650px;
+	max-width: 900px;
+	max-height: 350px;
+	overflow-y: scroll;
+	padding: 20px;
+
 	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	border: white solid 3px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.card-container::-webkit-scrollbar {
+	display: none;
+}
+
+.edit-card-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.edit-delete {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-bottom: 20px;
+	width: 150px;
 }
 
 .card {
@@ -157,7 +190,7 @@ input[type=password] {
 	width: 150px;
 	height: 200px;
 	perspective: 1000px;
-	margin: 0px 10px;
+	margin: 0px 10px 10px 10px;
   }
   
   .card-inner {
