@@ -51,6 +51,14 @@ def edit_deck(email, deck_id):
     user_cards = Card.query.filter_by(deck_id=deck_id).all()
     deck= Deck.query.filter_by(id=deck_id).first()
     form = AddCardForm()
+
+    #below logic used to calculate score for last attempt
+    score_from_last_attempt = 0
+    for card in user_cards:
+        if(card.last_attempt == True):
+            score_from_last_attempt += 1
+
+    percent_score = (score_from_last_attempt/deck.card_count)*100
     
     if form.validate_on_submit():
         new_card = Card(
@@ -66,7 +74,7 @@ def edit_deck(email, deck_id):
         db.session.commit()
         return redirect(url_for('main_bp.edit_deck', email=email, deck_id=deck_id))
 
-    return render_template('edit_deck.html', email=email, user_cards=user_cards, form=form, deck=deck)
+    return render_template('edit_deck.html', email=email, user_cards=user_cards, form=form, deck=deck, percent_score=percent_score)
 
 @main_bp.route('/<email>/<deck_id>/decks/overview')
 def deck_overview(email, deck_id):
@@ -85,13 +93,22 @@ def study(card_id):
 @login_required
 def record_score():
     data = request.json
+    
     card = Card.query.filter_by(id=int(data["card_id"])).first()
-    card.attempts += 1
+    
+    if(card.attempts == None):  #added to catch situation when attempt first set to None
+        card.attempts = 1
+    else:
+        card.attempts += 1
 
     if data["correct"]:
-        card.correct += 1
+        if(card.correct == None):  #added to catch situation when correct first set to None
+            card.correct = 1
+        else:
+            card.correct += 1
+
         card.last_attempt = True
-    
+    print(card)
     db.session.commit()
 
     return "Added"
