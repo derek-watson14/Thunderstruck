@@ -1,5 +1,5 @@
 """Logged-in page routes."""
-from flask import Blueprint, redirect, render_template, url_for, make_response
+from flask import Blueprint, redirect, render_template, url_for, make_response, Response, request
 from flask_login import current_user, login_required, logout_user
 import flask_login
 
@@ -91,6 +91,12 @@ def study(email, deck_id, card_id=0, methods=['GET', 'POST']):
         return render_template('study.html', form=form, title="Study Deck", email=email, deck_id=deck_id, deck_name=deck_name, current_card=current_card, card_id=current_card.id)
     
     return render_template('study.html', form=form, title="Study Deck", email=email, deck_id=deck_id, deck_name=deck_name, current_card=current_card, card_id=current_card.id)
+
+@main_bp.route("/record-score", methods=["PUT"])
+@login_required
+def record_score():
+    print(request.json["correct"])
+    return "TEST!!!!"
 
 @main_bp.route("/logout")
 @login_required

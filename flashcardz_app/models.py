@@ -54,7 +54,7 @@ class Card(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     front = db.Column(db.String(560), nullable=False, unique=False)
     back = db.Column(db.String(560), nullable=False, unique=False)
-    correct = db.Column(db.Boolean, nullable=False)
+    # correct = db.Column(db.Boolean, nullable=False)
     deck_id = db.Column(db.Integer, db.ForeignKey('decks.id'), nullable=False)
 
     # Defines how entry will be represented in a print statement
