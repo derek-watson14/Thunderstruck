@@ -37,7 +37,7 @@ def register():
 
     return render_template("registration.html", form=form, title="Register")
 
-@auth_bp.route('/', methods=['GET', 'POST'])
+
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
     """

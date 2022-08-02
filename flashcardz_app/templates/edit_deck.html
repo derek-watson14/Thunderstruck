@@ -1,14 +1,16 @@
 {% extends 'layout.html' %}
 {% block content %}
-   <header>You are logged in as {{ email }}</header>
-   <h1>Edit Your Deck Here</h1>
-   <h2> Below are the cards currently in your deck: </h2>
+   <h1>{{ deck.name }}</h1>
+   <h2>Contains {{ deck.card_count }} cards</h2>
 
-   {% if user_cards is none %}
-      <p>No Cards yet</p>  
-   {% else %}
-      <div class="card-container">
-         {% for card in user_cards %}
+   <a href="{{ url_for('main_bp.study', card_id=user_cards[0].id) }}">
+      <button>Study Deck</button>
+   </a>
+
+   <div class="card-container">
+   {% if user_cards %}
+      {% for card in user_cards %}
+         <div class="edit-card-container">
             <div class="card" flipped="false">
                <div class="card-inner">
                   <div class="card-front">
@@ -20,17 +22,22 @@
                      <p>{{ card.back }}</p>
                   </div>
                </div>
-               <a class="edit-card" href="#">Edit</a>
             </div>
-         {% endfor %} 
-      </div>
+            <div class="edit-delete">
+               <a class="edit-card" href="#">Edit </a>
+               <a class="delete-card" href="#">Delete</a>
+            </div>
+         </div>
+      {% endfor %} 
+   {% else %}
+      <p>No Cards yet</p>  
    {% endif %}
+   </div>
 
 
    <br>
    <br>
 
-   <h2 style="text-align: justify; color: blue;">Create a New Deck</h2>
    <br>
    <form action="" method="post">
       {{ form.hidden_tag() }}

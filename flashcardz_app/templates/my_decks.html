@@ -1,6 +1,5 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <header>You are logged in as {{ email }}</header>
     <h1>FLASHCARDZ</h1>
     <h2>MY DECKS</h2>	
     <div id="decks">
@@ -9,7 +8,7 @@
         </a>
         {% for deck in user_decks %}
         <a href="{{url_for('main_bp.edit_deck', email=email, deck_id=deck.id)}}" class="decks">
-            <input type = "button" value ={{ deck.name }} />
+            <input type = "button" value ="{{ deck.name }}" />
         </a>
         {% endfor %}
     </div>
