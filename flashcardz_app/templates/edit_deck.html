@@ -1,8 +1,11 @@
 {% extends 'layout.html' %}
 {% block content %}
-   <h3>Edit Deck:</h3>
-   <h1>{{ deck_name }}</h1>
-   <h2> Below are the cards currently in your deck: </h2>
+   <h1>{{ deck.name }}</h1>
+   <h2>Contains {{ deck.card_count }} cards</h2>
+
+   <a href="{{ url_for('main_bp.study', card_id=user_cards[0].id) }}">
+      <button>Study Deck</button>
+   </a>
 
    <div class="card-container">
    {% if user_cards %}

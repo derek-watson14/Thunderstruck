@@ -1,24 +1,27 @@
 {% extends 'layout.html' %}
 {% block content %}
 
+<div class="h3-container">
+   <h3><a href="{{ url_for('main_bp.my_decks', email=current_user.email) }}">My Decks</a></h3>
+   <h3><a href="{{ url_for('main_bp.edit_deck', email=current_user.email, deck_id=card.deck_id) }}">Deck Overview</a></h3>
+</div>
+
 <h1>FLASHCARDZ</h1>
 <h2>STUDY DECK: {{ deck_name }} </h2>
 
-<h3 style = "color: blue; margin-left:100px;"><a href="{{ url_for('main_bp.my_decks', email=email) }}">My Decks</a></h3>
-<h3 style = "color: blue; margin-left:100px;"><a href="{{ url_for('main_bp.deck_overview', email=email, deck_id=deck_id) }}">Deck Overview</a></h3>
 <div class="study-container">
    <div class="card" flipped="false">
        <div class="card-inner">
           <div class="card-front">
              <h3>Front: </h3>
-             <p>{{ current_card.front }}</p>
+             <p>{{ card.front }}</p>
              <div class="btn-container">
                 <button class="flip-btn" type="button">Check</button>
              </div>
           </div>
           <div class="card-back">
              <h3>Back: </h3>
-             <p>{{ current_card.back }}</p>
+             <p>{{ card.back }}</p>
              <div class="btn-container">
                 <button class="correct-btn" type="button" correct='true'>Correct</button>
                 <button class="correct-btn" type="button" correct='false'>Incorrect</button>
@@ -29,8 +32,12 @@
       </div>
    </div>
 </div>
+<a href="{{ url_for('main_bp.study', card_id=card.id+1) }}">
+   <button>Next</button>
+</a>
 
- <h3 style = "color: blue; margin-left:100px;"><a href="{{ url_for('main_bp.edit_deck', email=email, deck_id=deck_id) }}">Edit Deck</a></h3>
+<h3><a href="{{ url_for('main_bp.edit_deck', email=current_user.email, deck_id=card.deck_id) }}">Deck Overview</a></h3>
+
 
  <script>
     const score_route = "{{ url_for('main_bp.record_score') }}"

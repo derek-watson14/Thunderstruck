@@ -66,7 +66,7 @@ def edit_deck(email, deck_id):
         db.session.commit()
         return redirect(url_for('main_bp.edit_deck', email=email, deck_id=deck_id))
 
-    return render_template('edit_deck.html', email=email, user_cards=user_cards, form=form, deck_name=deck.name, card_count=deck.card_count)
+    return render_template('edit_deck.html', email=email, user_cards=user_cards, form=form, deck=deck)
 
 @main_bp.route('/<email>/<deck_id>/decks/overview')
 def deck_overview(email, deck_id):
@@ -75,28 +75,11 @@ def deck_overview(email, deck_id):
     deck_name = deck.name
     return render_template('deck_overview.html', email=email, deck_id=deck_id, deck_name=deck_name, cards=cards)
 
-@main_bp.route('/<email>/<deck_id>/<card_id>/study')
-def study(email, deck_id, card_id, methods=['GET', 'POST']):
+@main_bp.route('/study/<card_id>')
+def study(card_id):
+    card = Card.query.filter_by(id=card_id).first()
     
-    card_id = int(card_id)
-    cards = Card.query.filter_by(deck_id=deck_id).all() #returns list of all cards
-    current_card = cards[card_id]  #start with first card in list
-    deck = Deck.query.filter_by(id=deck_id).one()
-    deck_name = deck.name
-    working_card = Card.query.filter_by(id=current_card.id).one() #get card to update below correct answer
-
-
-    form = AddAnswerForm()
-    if form.validate_on_submit():
-        if (form.yes.data):
-            working_card.correct = True
-        else:
-            working_card.correct = False
-        
-        db.session.commit()
-        return render_template('study.html', form=form, title="Study Deck", email=email, deck_id=deck_id, deck_name=deck_name, current_card=current_card, card_id=current_card.id)
-    
-    return render_template('study.html', form=form, title="Study Deck", email=email, deck_id=deck_id, deck_name=deck_name, current_card=current_card, card_id=current_card.id)
+    return render_template('study.html', card_id=card_id, card=card)
 
 @main_bp.route("/record-score", methods=["PUT"])
 @login_required
