@@ -3,7 +3,7 @@ from flask import Blueprint, redirect, render_template, url_for, make_response
 from flask_login import current_user, login_required, logout_user
 import flask_login
 
-from .forms import AddCardForm, CreateDecksForm
+from .forms import AddCardForm, CreateDecksForm, AddAnswerForm
 
 from .models import User, Deck, Card, db
 
@@ -59,13 +59,38 @@ def edit_deck(email, deck_id):
     
     return render_template('my_cards.html', email=email, user_cards=user_cards, form=form)
 
-@main_bp.route('/decks/overview')
-def deck_overview():
-    return "<h1>View a Deck Overview here!</h1>"
+@main_bp.route('/<email>/<deck_id>/decks/overview')
+def deck_overview(email, deck_id):
+    cards = Card.query.filter_by(deck_id=deck_id).all()
+    deck = Deck.query.filter_by(id=deck_id).one()
+    deck_name = deck.name
+    return render_template('deck_overview.html', email=email, deck_id=deck_id, deck_name=deck_name, cards=cards)
 
-@main_bp.route('/explore-decks')
-def explore():
-    return "<h1>Explore other decks here!</h1>" 
+@main_bp.route('/<email>/<deck_id>/<card_id>/study')
+def study(email, deck_id, card_id=0, methods=['GET', 'POST']):
+    
+    card_id = int(card_id)
+    cards = Card.query.filter_by(deck_id=deck_id).all() #returns list of all cards
+    print(cards)
+    print(cards[card_id].id)
+    print(cards[0].id)
+    current_card = cards[card_id]  #start with first card in list
+    deck = Deck.query.filter_by(id=deck_id).one()
+    deck_name = deck.name
+    working_card = Card.query.filter_by(id=current_card.id).one() #get card to update below correct answer
+
+
+    form = AddAnswerForm()
+    if form.validate_on_submit():
+        if (form.yes.data):
+            working_card.correct = True
+        else:
+            working_card.correct = False
+        
+        db.session.commit()
+        return render_template('study.html', form=form, title="Study Deck", email=email, deck_id=deck_id, deck_name=deck_name, current_card=current_card, card_id=current_card.id)
+    
+    return render_template('study.html', form=form, title="Study Deck", email=email, deck_id=deck_id, deck_name=deck_name, current_card=current_card, card_id=current_card.id)
 
 @main_bp.route("/logout")
 @login_required

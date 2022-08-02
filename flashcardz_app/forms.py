@@ -1,3 +1,4 @@
+#from msilib.schema import RadioButton
 from flask_wtf import FlaskForm
 from wtforms import StringField,PasswordField,SubmitField,BooleanField, IntegerField
 from wtforms.validators import DataRequired,Email,EqualTo
@@ -24,3 +25,7 @@ class AddCardForm(FlaskForm):
     front = StringField('Front of Card', validators=[DataRequired()])
     back = StringField('Back of Card', validators=[DataRequired()])
     submit = SubmitField('Create')
+
+class AddAnswerForm(FlaskForm):
+    yes = BooleanField("Yes")
+    no = BooleanField("No")

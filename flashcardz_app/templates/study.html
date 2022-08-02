@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>FLASHCARDZ</h1>
+<h2>STUDY DECK: {{ deck_name }} </h2>
+
+<h3 style = "color: blue; margin-left:100px;"><a href="{{ url_for('main_bp.my_decks', email=email) }}">My Decks</a></h3>
+<h3 style = "color: blue; margin-left:100px;"><a href="{{ url_for('main_bp.deck_overview', email=email, deck_id=deck_id) }}">Deck Overview</a></h3>
+
+<div class="card" flipped="false">
+    <div class="card-inner">
+       <div class="card-front">
+          <h3>Front: </h3>
+          <p>{{ current_card.front }}</p>
+       </div>
+       <div class="card-back">
+          <h3>Back: </h3>
+          <p>{{ current_card.back }}</p>
+          <form action="" method="post">
+            <div>Yes {{ form.yes }}</div>
+            <div>No {{ form.no }}</div>
+            <div>Submit {{ form.submit }}</div>
+          </form>
+       </div>
+    </div>
+ </div>
+
+ <h3 style = "color: blue; margin-left:100px;"><a href="{{ url_for('main_bp.edit_deck', email=email, deck_id=deck_id) }}">Edit Deck</a></h3>
+
+ {% endblock %}
+
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='flip-card.js') }}"></script>
+
+{% endblock %}
