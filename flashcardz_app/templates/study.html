@@ -38,7 +38,8 @@
       </div>
    </div>
 </div>
-<a href="{{ url_for('main_bp.study', card_id=card.id+1) }}">
+<p>{{ cards }}</p>
+<a href="{{ url_for('main_bp.study', deck_id=deck_id, card_id=card_id ) }}">
    <button class="next-btn">Next Card</button>
 </a>
 
@@ -72,8 +73,7 @@
       const isCorrect = (correct === 'true');
       putScore(score_route, {
          correct: isCorrect,
-         card_id: "{{ card_id }}",
-         email: "{{ email }}"
+         card_id: "{{ card.id }}",
       }).then(data => {
          console.log(data);
       })

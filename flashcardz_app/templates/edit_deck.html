@@ -4,7 +4,7 @@
    <div class="deck-info-container">
       <div class="title-btn">
          <h1>{{ deck.name }}</h1>
-         <a href="{{ url_for('main_bp.study', card_id=user_cards[0].id) }}">
+         <a href="{{ url_for('main_bp.study', deck_id=deck.id, card_id=-1) }}">
             <button>Study Deck</button>
          </a>
       </div>

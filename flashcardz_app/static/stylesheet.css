@@ -11,6 +11,7 @@
 	--lt-indigo-dye: #006598;
 	--wisteria: #7143CE;
 	--radical-red: #e65463ff;
+	--dk-radical-red: #76121C;
 	--lt-radical-red: #EB7B86;
 	--medium-sea-green: #3cb371ff;
 	--lt-sea-green: #60CA90;
@@ -499,9 +500,15 @@ form input[type="submit"]:hover {
 }
 
 .delete-card {
+	font-size: 20px;
+	text-decoration: none;
+	color: var(--dk-radical-red);
+}
+
+.delete-card:hover {
 	color: var(--radical-red);
 }
 
 .delete-card:visited {
-	color: var(--radical-red);
+	color: var(--dk-radical-red);
 }

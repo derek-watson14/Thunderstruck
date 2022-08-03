@@ -58,7 +58,7 @@ def edit_deck(email, deck_id):
         if(card.last_attempt == True):
             score_from_last_attempt += 1
 
-    percent_score = (score_from_last_attempt/deck.card_count)*100
+    percent_score = round((score_from_last_attempt/len(user_cards))*100, 2)
     
     if form.validate_on_submit():
         new_card = Card(
@@ -76,18 +76,26 @@ def edit_deck(email, deck_id):
 
     return render_template('edit_deck.html', email=email, user_cards=user_cards, form=form, deck=deck, percent_score=percent_score)
 
-@main_bp.route('/<email>/<deck_id>/decks/overview')
-def deck_overview(email, deck_id):
-    cards = Card.query.filter_by(deck_id=deck_id).all()
-    deck = Deck.query.filter_by(id=deck_id).one()
-    deck_name = deck.name
-    return render_template('deck_overview.html', email=email, deck_id=deck_id, deck_name=deck_name, cards=cards)
+@main_bp.route('/study/<deck_id>/<card_id>')
+def study(deck_id, card_id):
+    cards = Card.query.filter_by(deck_id=deck_id).order_by(Card.id).all()
+    card_id = int(card_id)
 
-@main_bp.route('/study/<card_id>')
-def study(card_id):
-    card = Card.query.filter_by(id=card_id).first()
-    
-    return render_template('study.html', card_id=card_id, card=card)
+    if card_id == -1:
+        card_id = cards[0].id
+        card = cards[0]
+        return render_template('study.html', deck_id=deck_id, card_id=card_id, card=card)
+    else:
+        index = -1
+        for ind, card in enumerate(cards):
+            if card.id == card_id:
+                index = ind + 1
+                break
+        
+        if index >= len(cards) or index == -1:
+            return redirect(url_for('main_bp.edit_deck', email=current_user.email, deck_id=deck_id))
+        else:
+            return render_template('study.html', deck_id=deck_id, card_id=cards[index].id, card=cards[index])
 
 
 @main_bp.route("/delete-card?card_id=<card_id>&deck_id=<deck_id>", methods=["GET", "DELETE"])
@@ -96,6 +104,7 @@ def delete_card(card_id, deck_id):
     Card.query.filter_by(id=card_id).delete()
     db.session.commit()
     return redirect(url_for('main_bp.edit_deck', email=current_user.email, deck_id=deck_id))
+
 
 @main_bp.route("/record-score", methods=["PUT"])
 @login_required
@@ -109,14 +118,16 @@ def record_score():
     else:
         card.attempts += 1
 
-    if data["correct"]:
+    if data["correct"] == True:
         if(card.correct == None):  #added to catch situation when correct first set to None
             card.correct = 1
         else:
             card.correct += 1
 
         card.last_attempt = True
-    print(card)
+    else:
+        card.last_attempt = False
+
     db.session.commit()
 
     return "Added"
