@@ -9,12 +9,21 @@
 </head>
 <body>
     {% if current_user.is_authenticated %}
-        <header>You are logged in as {{ current_user.email }}</header>
-        <a href="{{ url_for('main_bp.logout')}}">
-            <button type="button">
-                Log Out
-            </button>
-        </a> 
+        <header>
+            You are logged in as {{ current_user.email }}
+            <div class="nav-btns">
+                <a href="{{ url_for('main_bp.my_decks', email=current_user.email)}}">
+                    <button type="button">
+                        My Decks
+                    </button>
+                </a> 
+                <a href="{{ url_for('main_bp.logout')}}">
+                    <button type="button" id="logout-btn">
+                        Log Out
+                    </button>
+                </a> 
+            </div>
+        </header>
     {% endif %}
     {% block content %}{% endblock %}
     {% block scripts %}{% endblock %}

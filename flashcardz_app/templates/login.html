@@ -24,15 +24,10 @@
       <br>
 
       <div>
-         {{ form.remember() }} {{ form.remember.label }}    
-      </div>
-      <br>
-
-      <div>
          {{ form.submit }}
       </div>
       <br>
 
    </form>
-   <p><a href="{{ url_for('auth_bp.register') }}">Don't have an account? Sign up!</a></p>
+   <p class="alt-auth"><a href="{{ url_for('auth_bp.register') }}">Don't have an account? Sign up!</a></p>
 {% endblock %}

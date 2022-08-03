@@ -4,11 +4,11 @@
     <h2>MY DECKS</h2>	
     <div id="decks">
         <a href="{{url_for('main_bp.create_deck', email=email)}}" class="decks">
-            <input type = "button" value = "CREATE DECK +" />
+            <input type = "button" value = "CREATE DECK +" id="create_deck" class="deck-btn" />
         </a>
         {% for deck in user_decks %}
         <a href="{{url_for('main_bp.edit_deck', email=email, deck_id=deck.id)}}" class="decks">
-            <input type = "button" value ="{{ deck.name }}" />
+            <input type = "button" value ="{{ deck.name }}" class="deck-btn" />
         </a>
         {% endfor %}
     </div>

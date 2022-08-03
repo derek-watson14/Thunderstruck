@@ -1,5 +1,49 @@
 /* Flashcardz stylesheet */
 
+:root {
+	--cornflower-blue: #6495edff;
+	--baby-powder: #fdfffcff;
+	--sunray: #edae49ff;
+	--lt-sunray: #F2C67E;
+	--jet: #303000;
+	--dark-jet: #1E1E00;
+	--indigo-dye: #003d5bff;
+	--wisteria: #7143CE;
+	--radical-red: #e65463ff;
+	--lt-radical-red: #EB7B86;
+	--medium-sea-green: #3cb371ff;
+	--lt-sea-green: #60CA90;
+	--front: #98c1d9;
+	--back: #6396bb;
+
+	color: var(--jet);
+}
+
+body {
+	margin: 0px;
+	box-sizing: border-box;
+}
+
+header {
+	color: var(--sunray);
+	width: 100%;
+	padding: 10px 50px 10px 50px;
+	background-color: var(--jet);
+	margin-bottom: 30px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+
+a {
+	color: var(--indigo-dye);
+}
+a:visited {
+	color: var(--wisteria);
+}
 
 h1 {
     margin: 10px;
@@ -8,10 +52,10 @@ h1 {
 
 h2 {
 	font-size: 20px;
-        margin-top: 0px;
+	margin-top: 0px;
 	margin-bottom: 30px;
-        color: blue;
-        font-family: helvetica;;
+	color: var(--jet);
+	font-family: helvetica;;
 }
 
 .h3-container {
@@ -32,9 +76,26 @@ br {
 	height: 20px;
 }
 
+button {
+	background-color: var(--sunray);
+	border: none;
+	color: var(--baby-powder);
+	width: 125px;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+
+button:hover {
+	background-color: var(--lt-sunray);
+	cursor: pointer;
+}
+
 
 body {
-	background-color: cornflowerblue;
+	background-color: var(--cornflower-blue);
 	font-family: helvetica;
 	text-align: center;
 }
@@ -42,36 +103,36 @@ body {
 #top_nav {
 	padding: 20px;;
 	height: 30px;
-	color: white;
+	color: var(--baby-powder);
 	overflow: hidden;
 
 }
 #top_nav a {
 	margin: 20px;
 	padding: 20px;
-	color: white;
-	background: blue;
+	color: var(--baby-powder);
+	background: var(--jet);
 }
 
 #top_nav a {
         margin: 20px;
         padding: 20px;
-        color: white;
-        background: blue;
+        color: var(--baby-powder);
+        background: var(--jet);
 }
 
 #bottom_nav {
         padding: 20px;;
         height: 30px;
-        color: white;
+        color: var(--baby-powder);
         overflow: hidden;
 
 }
 #bottom_nav a {
         margin: 20px;
         padding: 20px;
-        color: white;
-        background: blue;
+        color: var(--baby-powder);
+        background: var(--jet);
 }
 
 
@@ -83,7 +144,7 @@ body {
 p {
 	text-align: center;
 	float: none;
-	color: blue;	
+	color: var(--jet);	
 	font-size: 25px;
 	padding: 10px;	
 
@@ -92,16 +153,16 @@ p {
 
 
 input[type=button] {
-    background-color: blue;
-	color: white;
+    background-color: var(--jet);
+	color: var(--baby-powder);
     padding: 9px 24px;
 	margin-bottom: 20px;
 
 }
 
 input[type=submit] {
-    background-color: blue;
-	color: white;
+    background-color: var(--jet);
+	color: var(--baby-powder);
     padding: 9px 24px;
 	margin-bottom: 20px;
 
@@ -122,26 +183,59 @@ input[type=password] {
 	margin-bottom: 10px;
 }
 
+#decks {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-evenly;
+	max-width: 750px;
+	margin: auto;
+}
 
-#decks input[type=button] {
-	background-color: white;
+.decks {
+	height: 150px;
+	width: 250px;
+}
+
+.decks #create_deck {
+	background-color: var(--sunray);
+	color: var(--baby-powder);
+	border: none;
+}
+
+.decks #create_deck:hover {
+	background-color: var(--lt-sunray);
+}
+
+.deck-btn {
+	background-color: var(--baby-powder);
 	margin: 20px;
 	color: black;
 	padding: 10px 12px;
 	width: 200px;
 	height:	100px;
-	border: solid blue;
+	border: solid var(--jet);
 	word-wrap: break-word;
+	font-size: 20px;
+	border-radius: 10px;
+}
+
+.deck-btn:hover {
+	cursor: pointer;
+	background-color: var(--dark-jet);
+	width: 210px;
+	height: 105px;
+	transition: 0.5s;
 }
 
 #cards input[type=button] {
 	margin: 20px;
-	background-color: white;
+	background-color: var(--baby-powder);
         color: black;
         padding: 10px 12px;
         width: 200px;
         height: 100px;
-        border: solid blue;
+        border: solid var(--jet);
         word-wrap: break-word;
 }
 
@@ -151,8 +245,8 @@ input[type=password] {
 	text-align: center;
 	width: 50%;
 	height: 80%;
-	border: solid blue;
-	background-color: white;;
+	border: solid var(--jet);
+	background-color: var(--baby-powder);;
   	padding: 90px 50px;
   	margin-left: auto;
 	margin-right: auto;
@@ -169,7 +263,7 @@ input[type=password] {
 	display: flex;
 	justify-content: left;
 	flex-wrap: wrap;
-	border: white solid 3px;
+	border: var(--baby-powder) solid 3px;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	-ms-overflow-style: none;
 	scrollbar-width: none;
@@ -196,8 +290,8 @@ input[type=password] {
 
 .card {
 	background-color: transparent;
-	width: 150px;
-	height: 200px;
+	width: 225px;
+	height: 300px;
 	perspective: 1000px;
 	margin: 0px 15px 10px 15px;
   }
@@ -226,14 +320,18 @@ input[type=password] {
   }
   
   .card-front {
-	background-color: #bbb;
+	background-color: var(--front);
 	color: black;
   }
   
   .card-back {
-	background-color: #2980b9;
-	color: white;
+	background-color: var(--back);
+	color: var(--baby-powder);
 	transform: rotateY(180deg);
+  }
+
+  .card-back p {
+	color: var(--baby-powder);
   }
 
   .study-container {
@@ -242,3 +340,71 @@ input[type=password] {
 	display: flex;
 	justify-content: center;
   }
+
+  .next-btn {
+	margin-top: 20px;
+	width: 125px;
+	font-size: 18px;
+  }
+
+  .retry-btn {
+	margin-top: 20px;
+  }
+
+  .correct-btn:disabled {
+	background-color: var(--jet);
+	color: var(--baby-powder);
+  }
+  .correct-btn:disabled:hover {
+	background-color: var(--jet);
+	color: var(--baby-powder);
+	cursor: default;
+  }
+
+  .cor {
+	background-color: var(--medium-sea-green);
+  }
+  .cor:hover {
+	background-color: var(--lt-sea-green);
+  }
+
+  .incor {
+	background-color: var(--radical-red);
+  }
+  .incor:hover {
+	background-color: var(--lt-radical-red);
+  }
+
+#logout-btn {
+	background-color: var(--radical-red);
+}
+
+.nav-btns a {
+	margin-left: 8px;
+}
+
+#logout-btn:hover {
+	background-color: var(--lt-radical-red);
+}
+
+form input[type="submit"] {
+	background-color: var(--medium-sea-green);
+	border: none;
+	color: var(--baby-powder);
+	width: 125px;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+
+form input[type="submit"]:hover {
+	background-color: var(--lt-sea-green);
+	cursor: pointer;
+}
+
+.alt-auth {
+	font-size: 20px;
+	margin-top: 0px;
+}
