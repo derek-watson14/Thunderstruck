@@ -21,6 +21,9 @@
 
 body {
 	margin: 0px;
+}
+
+* {
 	box-sizing: border-box;
 }
 
@@ -253,20 +256,28 @@ input[type=password] {
 
 }
 
-.card-container {
-	margin: 50px auto 20px auto;
+.card-info-container {
 	max-width: 900px;
-	max-height: 350px;
-	overflow-y: scroll;
-	padding: 20px;
-
+	margin: auto;
 	display: flex;
+	flex-direction: column;
 	justify-content: left;
+	margin-top: 50px;
+	border-top: var(--jet) solid 5px;
+	padding-top: 20px;
+}
+
+.card-info-container h1 {
+	text-align: left;
+	margin: 0px 0px 15px 0px;
+}
+
+.card-container {
+	display: flex;
+	flex-direction: row;
 	flex-wrap: wrap;
-	border: var(--baby-powder) solid 3px;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-	-ms-overflow-style: none;
-	scrollbar-width: none;
+	justify-content: left;
+	gap: 30px;
 }
 
 .card-container::-webkit-scrollbar {
@@ -284,17 +295,20 @@ input[type=password] {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	margin-bottom: 20px;
 	width: 150px;
 }
 
 .card {
 	background-color: transparent;
-	width: 225px;
-	height: 300px;
+	width: 175px;
+	height: 250px;
 	perspective: 1000px;
-	margin: 0px 15px 10px 15px;
-  }
+	margin-bottom: 10px;
+}
+
+.card h3 {
+	margin-top: 20px;
+}
   
   .card-inner {
 	position: relative;
@@ -407,4 +421,30 @@ form input[type="submit"]:hover {
 .alt-auth {
 	font-size: 20px;
 	margin-top: 0px;
+}
+
+.deck-info-container {
+	max-width: 900px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	margin-top: 50px;
+}
+
+.title-btn {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	height: 40px;
+	margin-bottom: 25px;
+}
+
+.title-btn h1, a {
+	margin: 0px;
+	height: 40px;
+}
+
+.deck-info-container h2 {
+	text-align: left;
+	margin: 0px 0px 10px 0px;
 }
