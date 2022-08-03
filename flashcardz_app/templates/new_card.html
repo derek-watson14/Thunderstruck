@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>Create Card</h1>
+    <br>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <div>
+        {{ form.front(placeholder="Front text",
+        style='width: 50%;
+        font-weight: bold;
+        padding: 12px 20px ;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box') }}
+        {% for error in form.front.errors %}
+        <p>{{ error }}</p>
+        {% endfor %}
+        </div>
+        <br>
+        <div>
+        {{ form.back(placeholder="Back text",
+        style='width: 50%;
+        font-weight: bold;
+        padding: 12px 20px ;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box') }}
+        {% for error in form.back.errors %}
+        <p>{{ error }}</p>
+        {% endfor %}
+        </div>
+        <br>
+        <div>
+        {{ form.submit(style ='width: 50%;') }}
+        </div>
+    </form>
+{% endblock %}

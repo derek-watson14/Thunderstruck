@@ -13,21 +13,27 @@
    <div class="card" flipped="false">
        <div class="card-inner">
           <div class="card-front">
-             <h3>Front: </h3>
-             <p>{{ card.front }}</p>
+            <div class="side-text">
+               <h3>Front: </h3>
+               <p>{{ card.front }}</p>
+            </div>
              <div class="btn-container">
                 <button class="flip-btn" type="button">Check</button>
              </div>
           </div>
           <div class="card-back">
-             <h3>Back: </h3>
-             <p>{{ card.back }}</p>
-             <div class="btn-container">
-                <button class="correct-btn cor" type="button" correct='true'>Correct</button>
-                <button class="correct-btn incor" type="button" correct='false'>Incorrect</button>
-                <br>
-                <button class="retry-btn" type="button">Retry</button>
-             </div>
+            <div class="side-text">
+               <h3>Back: </h3>
+               <p>{{ card.back }}</p>
+            </div>
+            <div class="btn-container">
+               <div class="score-btns">
+                  <button class="correct-btn cor" type="button" correct='true'>Correct</button>
+                  <button class="correct-btn incor" type="button" correct='false'>Incorrect</button>
+               </div>
+               <br>
+               <button class="retry-btn" type="button">Retry</button>
+            </div>
          </div>
       </div>
    </div>
