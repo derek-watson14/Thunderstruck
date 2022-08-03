@@ -8,6 +8,7 @@
 	--jet: #303000;
 	--dark-jet: #1E1E00;
 	--indigo-dye: #003d5bff;
+	--lt-indigo-dye: #006598;
 	--wisteria: #7143CE;
 	--radical-red: #e65463ff;
 	--lt-radical-red: #EB7B86;
@@ -314,16 +315,20 @@ input[type=password] {
 	align-items: center;
 }
 
-.edit-delete {
+.delete-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 	width: 150px;
 }
 
+.delete-container .delete-card {
+
+}
+
 .card {
 	background-color: transparent;
-	width: 270px;
+	width: 280px;
 	height: 250px;
 	perspective: 1000px;
 	margin-bottom: 10px;
@@ -363,7 +368,7 @@ input[type=password] {
   .btn-container {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
 	height: 100px;
   }
@@ -399,6 +404,10 @@ input[type=password] {
 	margin-top: 20px;
 	width: 125px;
 	font-size: 18px;
+	background-color: var(--indigo-dye);
+  }
+  .next-btn:hover {
+	background-color: var(--lt-indigo-dye);
   }
 
   .btn-container {
@@ -487,4 +496,12 @@ form input[type="submit"]:hover {
 .deck-info-container h2 {
 	text-align: left;
 	margin: 0px 0px 10px 0px;
+}
+
+.delete-card {
+	color: var(--radical-red);
+}
+
+.delete-card:visited {
+	color: var(--radical-red);
 }

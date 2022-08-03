@@ -89,6 +89,14 @@ def study(card_id):
     
     return render_template('study.html', card_id=card_id, card=card)
 
+
+@main_bp.route("/delete-card?card_id=<card_id>&deck_id=<deck_id>", methods=["GET", "DELETE"])
+@login_required
+def delete_card(card_id, deck_id):
+    Card.query.filter_by(id=card_id).delete()
+    db.session.commit()
+    return redirect(url_for('main_bp.edit_deck', email=current_user.email, deck_id=deck_id))
+
 @main_bp.route("/record-score", methods=["PUT"])
 @login_required
 def record_score():

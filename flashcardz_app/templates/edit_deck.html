@@ -41,9 +41,10 @@
                         </div>
                      </div>
                   </div>
-                  <div class="edit-delete">
-                     <a class="edit-card" href="#">Edit </a>
-                     <a class="delete-card" href="#">Delete</a>
+                  <div class="delete-container">
+                     <a class="delete-card" href="{{ url_for('main_bp.delete_card', card_id=card.id, deck_id=card.deck_id) }}">
+                        Delete
+                     </a>
                   </div>
                </div>
             {% endfor %} 
@@ -93,7 +94,7 @@
             </div>
          </form>
    </div>
-   
+
 {% endblock %}
 
 {% block scripts %}

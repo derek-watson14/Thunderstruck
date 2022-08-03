@@ -28,8 +28,8 @@
             </div>
             <div class="btn-container">
                <div class="score-btns">
-                  <button class="correct-btn cor" type="button" correct='true'>Correct</button>
                   <button class="correct-btn incor" type="button" correct='false'>Incorrect</button>
+                  <button class="correct-btn cor" type="button" correct='true'>Correct</button>
                </div>
                <br>
                <button class="retry-btn" type="button">Retry</button>
@@ -39,8 +39,9 @@
    </div>
 </div>
 <a href="{{ url_for('main_bp.study', card_id=card.id+1) }}">
-   <button class="next-btn">Next</button>
+   <button class="next-btn">Next Card</button>
 </a>
+
 
 
  <script>
