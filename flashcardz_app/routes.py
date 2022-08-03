@@ -58,7 +58,10 @@ def edit_deck(email, deck_id):
         if(card.last_attempt == True):
             score_from_last_attempt += 1
 
-    percent_score = round((score_from_last_attempt/len(user_cards))*100, 2)
+    if (len(user_cards) == 0):
+        percent_score = 0
+    else:
+        percent_score = round((score_from_last_attempt/len(user_cards))*100, 2)
     
     if form.validate_on_submit():
         new_card = Card(
