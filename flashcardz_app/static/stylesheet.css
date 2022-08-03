@@ -256,6 +256,29 @@ input[type=password] {
 
 }
 
+#create-card-container {
+	max-width: 900px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	margin-top: 50px;
+	border-top: var(--jet) solid 5px;
+	padding-top: 20px;
+	margin-bottom: 70px;
+}
+.edit-page-title {
+	text-align: left;
+}
+.edit-page-title h1 {
+	margin: 0px 0px 25px 0px;
+}
+.edit-page-title p {
+	text-align: left;
+	margin: 0px 0px 40px 0px;
+	padding: 0px;
+}
+
 .card-info-container {
 	max-width: 900px;
 	margin: auto;

@@ -16,7 +16,7 @@
    <div class="card-info-container">
       <div class="title-btn">
          <h1>Cards</h1>
-         <a href=#>
+         <a href="#create-card-container">
             <button>New Card</button>
          </a>
       </div>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="card-back">
                            <div class="side-text">
-                              <h3>Front: </h3>
+                              <h3>Back: </h3>
                               <p>{{ card.back }}</p>
                            </div>
                         </div>
@@ -53,47 +53,47 @@
       </div>
    </div>
 
-
-   <br>
-   <br>
-
-   <br>
-   <form action="" method="post">
-      {{ form.hidden_tag() }}
-      <div>
-         {{ form.front(placeholder="Front text",
-         style='width: 50%;
-         font-weight: bold;
-         padding: 12px 20px ;
-         margin: 8px 0;
-         border: 1px solid #ccc;
-         border-radius: 4px;
-         box-sizing: border-box') }}
-         {% for error in form.front.errors %}
-         <p>{{ error }}</p>
-         {% endfor %}
+   <div id="create-card-container">
+      <div class="edit-page-title">
+         <h1>Create Card</h1>
+         <p>Enter front and back text in the form below and press "Create Card"</p>
       </div>
-      <br>
-      <div>
-         {{ form.back(placeholder="Back text",
-         style='width: 50%;
-         font-weight: bold;
-         padding: 12px 20px ;
-         margin: 8px 0;
-         border: 1px solid #ccc;
-         border-radius: 4px;
-         box-sizing: border-box') }}
-         {% for error in form.back.errors %}
-         <p>{{ error }}</p>
-         {% endfor %}
-      </div>
-      <br>
-      <div>
-         {{ form.submit(style ='width: 50%;') }}
-      </div>
-   </form>
-
-   <a href="{{url_for('main_bp.my_decks', email=email)}}" class="my_decks">Go to My Decks</a>
+         <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <div>
+               {{ form.front(placeholder="Front text",
+               style='width: 100%;
+               font-weight: bold;
+               padding: 12px 20px ;
+               margin: 8px 0;
+               border: 1px solid #ccc;
+               border-radius: 4px;
+               box-sizing: border-box') }}
+               {% for error in form.front.errors %}
+               <p>{{ error }}</p>
+               {% endfor %}
+            </div>
+            <br>
+            <div>
+               {{ form.back(placeholder="Back text",
+               style='width: 100%;
+               font-weight: bold;
+               padding: 12px 20px ;
+               margin: 8px 0;
+               border: 1px solid #ccc;
+               border-radius: 4px;
+               box-sizing: border-box') }}
+               {% for error in form.back.errors %}
+               <p>{{ error }}</p>
+               {% endfor %}
+            </div>
+            <br>
+            <div>
+               {{ form.submit(style ='width: 100%;') }}
+            </div>
+         </form>
+   </div>
+   
 {% endblock %}
 
 {% block scripts %}
