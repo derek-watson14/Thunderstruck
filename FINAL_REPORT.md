@@ -23,17 +23,22 @@
 - User can log into account
 - User can create decks
 - User can add card questions and answers
-- User can edit card questions and asnwers
+- User can delete card questions and asnwers
 
 **What you were in the middle of implementing**
-- n/a
+- testing
+- edit card functionality
+- adding more advanced scoring
 
 **What you had planned for the future**
-- Add score tracking feature
+- Add a previous card button
 - Add a search or explore other deck feature
+- Users can share decks
+- Users can save/like other decks
+- Generate a study deck with incorrectly scored cards
 
 **Any known problems (bugs, issues)**
-- Edit button?
+- No known bugs
 
 ### Make sure that your repository has the following files committed to remote repository:
 - [x] [REAMDE.md](https://github.com/derek-watson14/Thunderstruck/blob/main/README.md)
@@ -44,6 +49,6 @@
 - [x] [Project presentation files](https://docs.google.com/presentation/d/1Tnoomowqkql-IW35MKJPudfchEXNuO7cwC0eWA9GvKY/edit?usp=sharing)
 - [ ] [Video of demo]()
 - [x] [Source code](https://github.com/derek-watson14/Thunderstruck/tree/main/flashcardz_app)
-- [ ] [Test cases](https://github.com/derek-watson14/Thunderstruck/blob/main/Project_Planning/test_list.md)
+- [ ] [Test cases]()
 - [ ] Source documentation, and auto-doc files
 - [x] [Link to Public Deployment Site (Heroku or similar)](https://flashcardzz.herokuapp.com/)
