@@ -49,5 +49,5 @@
 - [x] [Project presentation files](https://docs.google.com/presentation/d/1Tnoomowqkql-IW35MKJPudfchEXNuO7cwC0eWA9GvKY/edit?usp=sharing)
 - [x] [Video of demo](https://github.com/derek-watson14/Thunderstruck/blob/main/Project_Planning/Screen%20Recording%202022-08-04%20at%204.48.43%20PM.mov)
 - [x] [Source code](https://github.com/derek-watson14/Thunderstruck/tree/main/flashcardz_app)
-- [ ] [Test cases](https://github.com/derek-watson14/Thunderstruck/tree/main/flashcardz_app/tests)
+- [x] [Test cases](https://github.com/derek-watson14/Thunderstruck/tree/main/flashcardz_app/tests)
 - [x] [Link to Public Deployment Site (Heroku or similar)](https://flashcardzz.herokuapp.com/)
