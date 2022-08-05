@@ -12,7 +12,7 @@
 [Trello Board](https://trello.com/invite/b/eDSkmUzn/6807d54dabff917d82db608f0b177828/flashcardz)
 
 ## Link to 5 minute video: a demo for a potential customer
-[Video Demo]()
+[Video Demo](https://github.com/derek-watson14/Thunderstruck/blob/main/Project_Planning/Screen%20Recording%202022-08-04%20at%204.48.43%20PM.mov)
 
 ## Version control repository link 
 [Git Repository](https://github.com/derek-watson14/Thunderstruck.git)
@@ -47,8 +47,7 @@
 - [x] [SQL_TESTING.md](https://github.com/derek-watson14/Thunderstruck/blob/main/Project_Planning/SQL_TESTING.md)
 - [x] [FINAL_REPORT.md](https://github.com/derek-watson14/Thunderstruck/blob/main/FINAL_REPORT.md)
 - [x] [Project presentation files](https://docs.google.com/presentation/d/1Tnoomowqkql-IW35MKJPudfchEXNuO7cwC0eWA9GvKY/edit?usp=sharing)
-- [ ] [Video of demo]()
+- [x] [Video of demo](https://github.com/derek-watson14/Thunderstruck/blob/main/Project_Planning/Screen%20Recording%202022-08-04%20at%204.48.43%20PM.mov)
 - [x] [Source code](https://github.com/derek-watson14/Thunderstruck/tree/main/flashcardz_app)
 - [ ] [Test cases]()
-- [ ] Source documentation, and auto-doc files
 - [x] [Link to Public Deployment Site (Heroku or similar)](https://flashcardzz.herokuapp.com/)
